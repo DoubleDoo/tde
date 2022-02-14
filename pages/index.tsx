@@ -7,16 +7,17 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import { Row, Col } from 'antd';
 import {PhoneFilled} from '@ant-design/icons';
 
+
 const { Header, Content, Footer } = Layout;
 
 const Home: NextPage = () => {
   let webmenu=new Array("О компании","Контакты","Продукция","Новости","Сертификаты","Наши заказчики")
   return (
     <Layout className="layout">
-    <Header className='header'>
+    <Header className="header">
     <Row wrap={false}>
-      <Col  flex="100px"><img src={"whitelogo.png"} className="logo" /></Col>
-      <Col  flex="auto"><Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+      <Col  flex="100px"><Image src="/whitelogo.png" className="logo"  width={60} height= {60}/></Col>
+      <Col  flex="auto"><Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
         {webmenu.map((item, index) => {
           const key = index + 1;
           return <Menu.Item key={key}>{item}</Menu.Item>;
@@ -26,11 +27,11 @@ const Home: NextPage = () => {
     </Row>
     </Header>
 
-    <Content style={{ padding: '0 50px' }}>
+    <Content style={{ padding: "0 50px" }}>
       <div className="site-layout-content">Content</div>
     </Content>
 
-    <Footer style={{ textAlign: 'center' }}>ООО "ТДЭ" ©2022 Created by dubinich</Footer>
+    <Footer style={{ textAlign: "center" }}>ООО ТДЭ ©2022 Created by dubinich</Footer>
   </Layout>
   )
 }
