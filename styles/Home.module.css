@@ -4,3 +4,12 @@
     flex-direction: column;
   }
 }
+
+
+.data{
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+}
+

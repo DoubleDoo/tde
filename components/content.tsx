@@ -1,6 +1,7 @@
 import { Button } from 'antd';
 import React from 'react';
-import styles from '../styles/test.module.css'
+import styles from '../styles/projectsCarousel.module.css'
+import { Layout } from 'antd';
 
 type Props = {
 
@@ -9,7 +10,7 @@ type State = {
 
 };
 
-class Body extends React.Component<Props, State> {
+class ProjectsCarousel extends React.Component<Props, State> {
   
     constructor (props:Props) {
       super(props)
@@ -17,9 +18,9 @@ class Body extends React.Component<Props, State> {
 
     render() {
       return <>
-        <h1 className={styles.test}>Body</h1>;
+        <h1>Body</h1>;
         <div>
-          Body      
+          Body  effffffffffffffffff    
         </div> 
       </>
     }
@@ -33,4 +34,4 @@ class Body extends React.Component<Props, State> {
     }
   }
 
-export { Body }
+export { ProjectsCarousel }

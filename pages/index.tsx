@@ -5,33 +5,54 @@ import styles from '../styles/Home.module.css'
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { Row, Col } from 'antd';
-import {PhoneFilled} from '@ant-design/icons';
+import {ProjectsCarousel} from '../components/projectsCarousel';
+import {LastNews} from '../components/lastNews';
+import {CustomHeader} from '../components/header';
+import {CustomFooter} from '../components/footer';
 
 
 const { Header, Content, Footer } = Layout;
 
 const Home: NextPage = () => {
-  let webmenu=new Array("О компании","Контакты","Продукция","Новости","Сертификаты","Наши заказчики")
   return (
     <Layout className="layout">
-    <Header className="header">
-    <Row wrap={false}>
-      <Col  flex="100px"><Image src="/whitelogo.png" className="logo"  width={60} height= {60}/></Col>
-      <Col  flex="auto"><Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-        {webmenu.map((item, index) => {
-          const key = index + 1;
-          return <Menu.Item key={key}>{item}</Menu.Item>;
-        })}
-      </Menu></Col>
-      <Col flex="150px" className="phone" xs={30}><PhoneFilled/> +7 (423) 240-21-87 </Col>
-    </Row>
-    </Header>
-
-    <Content style={{ padding: "0 50px" }}>
-      <div className="site-layout-content">Content</div>
+    <CustomHeader/>
+    <Content>
+      <Row>
+        <Col span={24}>
+          <ProjectsCarousel/>
+        </Col>
+        <Col span={24} className={styles.data}>
+          <h2>О нас</h2>
+          <p>ООО «ТДЭ» специализируется на поставке электрооборудования и электромонтажных материалов. 
+          Мы гарантируем вам приобретение качественного оборудования. Весь наш товар имеет необходимые сертификаты. 
+          Предоставляется гарантийное и послегарантийное обслуживание. Имея собственные и партнерские производства в
+          Санкт-Петербурге АО ПО «Электробалт», ООО «Терма Энерго»,ООО «Элтех» г.Чебоксары статус партнеры, 
+          и собственные сборочные площадки в г.Чебоксары по сборке БМЗ и ПС. 
+          Наш коллектив выполняет как типовые так и не стандартные технические решения по изготовлению Подстанций.</p>
+          <h1>Миссия</h1>
+          <p>
+          Мы стремимся повысить конкурентоспособность наших Заказчиков, предлагая высокоэффективные и надежные решения в области энергоснабжения 
+          </p>
+          <h1>Видение</h1>
+          <p>
+          Мы реализуем стратегию устойчивого развития, осваиваем новые технологии, развиваем свои возможности с целью выхода на объем реализации 1 млрд. руб. по итогу 2022 года и 3 млрд. руб. в 2025 году.
+          </p>
+        </Col>
+        <Col span={24} className={styles.data}>
+        <h1> Наши проекты</h1>
+        <LastNews/>
+        </Col>
+        <Col span={24} className={styles.data}>
+          <h1>Новости</h1>
+          <LastNews/>
+        </Col>
+        <Col span={24} className={styles.data}>
+        <h1>Наши заказчики</h1>
+        </Col>
+      </Row>
     </Content>
-
-    <Footer style={{ textAlign: "center" }}>ООО ТДЭ ©2022 Created by dubinich</Footer>
+    <CustomFooter/>
   </Layout>
   )
 }
