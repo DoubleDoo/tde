@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import {background} from './reducer'; 
+import {сurPageIndex} from './сurPageIndex'; 
 
 const reducers = combineReducers({
-    background
+    сurPageIndex
 });
 
 export default reducers;

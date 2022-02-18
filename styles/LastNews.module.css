@@ -32,7 +32,8 @@
 
 .titlesBlock{
   font-size:xx-large;
-  color:#065cad
+  color:#065cad;
+  padding-bottom: 25px;
 }
 
 .textBlock{

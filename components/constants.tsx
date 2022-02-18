@@ -71,13 +71,13 @@ export const newsList=new Array(
         data: "17.02.2022", 
         newsLink: "/news/9" 
     },
-    {
-        name: "Создание нового сайта завершено?»",
-        imglink: "/mainCarousel/1.png",
-        text: "Все готово",
-        data: "18.02.2022", 
-        newsLink: "/news/10" 
-    },
+    // {
+    //     name: "Создание нового сайта завершено?»",
+    //     imglink: "/mainCarousel/1.png",
+    //     text: "Все готово",
+    //     data: "18.02.2022", 
+    //     newsLink: "/news/10" 
+    // },
 )
 
 
