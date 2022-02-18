@@ -1,3 +1,17 @@
+.newsCard{
+  /* width: 100%;
+  text-align: center;
+   */
+}
+
+.newsCardsRow{
+  /* align-content: center;
+  align-items: center;
+  align-self: center;
+  text-align: center; */
+}
+
+
 .data{
   align-content: center;
   align-items: center;
@@ -22,7 +36,7 @@
 .topBlock{
   padding-top: 50px;
   padding-bottom: 0px;
-  background-color: white;
+  background-color: #f0f2f5;
 }
 
 .whiteBlock{
@@ -38,17 +52,4 @@
 .textBlock{
   font-size:x-large;
   color:#0b559b
-}
-
-.newsCard{
-  /* width: 100%;
-  text-align: center;
-   */
-}
-
-.newsCardsRow{
-  /* align-content: center;
-  align-items: center;
-  align-self: center;
-  text-align: center; */
 }

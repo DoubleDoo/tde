@@ -16,7 +16,6 @@ a {
   box-sizing: border-box;
 }
 
-
 .logo{
   width: 60px;
   height: 60px;
@@ -24,10 +23,6 @@ a {
 
 .phone{
   color: white;
-}
-
-.header{
-  
 }
 
 .site-layout-content {
@@ -40,7 +35,3 @@ a {
   margin: 16px 0 16px 24px;
 }
 
-.test{
-  height: 700px;
-  width: 100%;
-}

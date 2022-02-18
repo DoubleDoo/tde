@@ -1,0 +1,41 @@
+.data{
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+  }
+  
+  .greyBlock{
+    background-color: #f0f2f5;
+  }
+  
+  .mhgreyBlock{
+    background-color: #f0f2f5;
+    padding-top: 50px;
+  }
+  
+  .mbgreyBlock{
+    background-color: #f0f2f5;
+    padding-bottom: 50px;
+  }
+  
+  .topBlock{
+    padding-top: 50px;
+    padding-bottom: 30px;
+    background-color: white;
+  }
+  
+  .whiteBlock{
+    background-color: white;
+    padding-bottom: 30px;
+  }
+  
+  .titlesBlock{
+    font-size:xx-large;
+    color:#065cad
+  }
+  
+  .textBlock{
+    font-size:x-large;
+    color:#0b559b
+  }
