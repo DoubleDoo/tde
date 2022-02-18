@@ -8,7 +8,7 @@ import {CustomHeader} from '../components/header';
 import {CustomFooter} from '../components/footer';
 import {AboutBlock} from '../components/aboutBlock';
 import { LastProjects } from '../components/lastProjects';
-// import { SolutionsBlock } from '../components/solutionsBlock';
+import { SolutionsBlock } from '../components/solutionsBlock';
 import { Partners } from '../components/partners';
 import { Subscribe } from '../components/subscribe';
 import { Test } from '../components/test';
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
           <AboutBlock/>
         </Col>
         <Col span={24}>
-        {/* <SolutionsBlock/> */}
+        <SolutionsBlock/>
         </Col>
         <Col span={24}>
           <LastProjects/>
