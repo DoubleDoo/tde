@@ -41,45 +41,44 @@ class Subscribe extends React.Component<Props, State> {
     </Row>
     <Row className={styles.block}>
 
-<Col span={2}></Col>
-<Col span={20}>
+      <Col span={1}></Col>
+      <Col span={22}>
+          <Form
+                name="basic"
+                initialValues={{ remember: true }}
+                onFinish={()=>{}}
+                onFinishFailed={()=>{}}
+                autoComplete="off"
+              >
+            <Form.Item 
+            wrapperCol={{span: 12, offset: 0}} 
+            labelCol={{span: 24, offset: 0}}
+              label= "Как к вам можно обращаться?"
+              name="username"
+              rules={[{ required: true, message: 'ФИО' }]}
+            >
+            <Input />
+            </Form.Item>
 
-<Form
-      name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      initialValues={{ remember: true }}
-      onFinish={()=>{}}
-      onFinishFailed={()=>{}}
-      autoComplete="off"
-    >
-      <Form.Item
-        label="Как к вам можно обращаться?"
-        name="username"
-        rules={[{ required: true, message: 'ФИО' }]}
-      >
-      <Input />
-      </Form.Item>
+            <Form.Item
+            wrapperCol={{span: 12, offset: 0}} 
+            labelCol={{span: 24, offset: 0}}
+              label="Укажите ваш почтовый ящик"
+              name="email"
+              rules={[{ required: true, message: 'Адрес электронной почты' }]}
+            >
+            <Input/>
+            </Form.Item>
 
-      <Form.Item
-        label="Укажите ваш почтовый ящик"
-        name="email"
-        rules={[{ required: true, message: 'Адрес электронной почты' }]}
-      >
-      <Input/>
-      </Form.Item>
-
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Подписаться
-        </Button>
-      </Form.Item>
-    </Form>
-
-
-
-</Col>
-<Col span={2}></Col>
+            <Form.Item 
+            >
+              <Button type="primary" htmlType="submit">
+                Подписаться
+              </Button>
+            </Form.Item>
+          </Form>
+      </Col>
+      <Col span={1}></Col>
     </Row>
     </>
     }
