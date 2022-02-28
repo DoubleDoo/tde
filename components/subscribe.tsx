@@ -30,14 +30,14 @@ class Subscribe extends React.Component<Props, State> {
     render() {  
       return <> <Row className={styles.block}>
       <Col span={1}></Col>
-      <Col span={16}>
+      <Col xs={{span: 22}} sm={{span: 16}} lg={{span: 16}}>
         <Typography>
           <Title className={styles.titlesBlock} type={"secondary"} level={1}>
           Подпишитесь на нашу новостную рассылку, чтобы получать самую актуальную информацию о новых продуктах нашей компании
           </Title>
         </Typography>
       </Col>
-      <Col span={7}></Col>
+      <Col xs={{span: 1}} sm={{span: 7}} lg={{span: 7}}></Col>
     </Row>
     <Row className={styles.block}>
 
