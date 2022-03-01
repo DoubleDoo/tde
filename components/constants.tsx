@@ -1,9 +1,5 @@
 export const webmenu=new Array(
     {
-        name: "О компании",
-        link: "/about"
-    },
-    {
         name: "Контакты",
         link: "/contacts"
     },
@@ -20,7 +16,7 @@ export const webmenu=new Array(
         link: "/certificates"
     },
     {
-        name: "Наши заказчики",
+        name: "Склад",
         link: "/orders"
     },
 )
@@ -79,6 +75,38 @@ export const newsList=new Array(
     //     newsLink: "/news/10" 
     // },
 )
+
+
+export const contacts=new Array(
+    {
+        Title: "Управляющая компания",
+        Adress: "Москва, Центральная 56",
+        Email: "test@gmail.com",
+        Phone: "+7 (423) 240-21-87",
+        Fax: "+7 (423) 240-21-87",
+        Time: "08:00 - 18:00",
+        LocalTime: "",
+    },
+    {
+        Title: "Управляющая компания",
+        Adress: "Москва, Центральная 56",
+        Email: "test@gmail.com",
+        Phone: "+7 (423) 240-21-87",
+        Fax: "+7 (423) 240-21-87",
+        Time: "08:00 - 18:00",
+        LocalTime: "",
+    },
+    {
+        Title: "Управляющая компания",
+        Adress: "Москва, Центральная 56",
+        Email: "test@gmail.com",
+        Phone: "+7 (423) 240-21-87",
+        Fax: "+7 (423) 240-21-87",
+        Time: "08:00 - 18:00",
+        LocalTime: "",
+    }
+)
+
 
 
 

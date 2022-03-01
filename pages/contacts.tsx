@@ -8,6 +8,7 @@ import { Row, Col } from 'antd';
 import {ProjectsCarousel} from '../components/projectsCarousel';
 import {CustomHeader} from '../components/header';
 import {CustomFooter} from '../components/footer';
+import {ContactBlock} from "../components/contactBlock"
 
 
 const { Header, Content, Footer } = Layout;
@@ -17,7 +18,7 @@ const Contacts: NextPage = () => {
     <Layout className="layout">
     <CustomHeader/>
     <Content>
-      <div className="site-layout-content">Contacts</div>
+      <ContactBlock/>
     </Content>
     <CustomFooter/>
   </Layout>
