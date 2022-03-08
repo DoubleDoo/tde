@@ -1,0 +1,15 @@
+# Файл docker-compose должен начинаться с тега версии.
+# Мы используем "3" так как это - самая свежая версия на момент написания этого кода.
+
+version: "3.9"
+services:
+  server:
+    build: server/
+    ports:
+      - 90:5000
+  tde:
+    build: client/
+    ports:
+      - 80:3000
+    depends_on:
+      - server

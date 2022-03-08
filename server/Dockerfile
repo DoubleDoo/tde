@@ -11,8 +11,7 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 80
-EXPOSE 443
+EXPOSE 5000
 
 CMD npm run start
 
