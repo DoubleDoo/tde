@@ -43,7 +43,7 @@ const Home: NextPage = () => {
           <Subscribe/>
         </Col>
         <Col span={24}>
-          <Test/>
+          {/* <Test/> */}
         </Col>
       </Row>
     </Content>

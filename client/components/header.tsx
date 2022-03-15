@@ -19,7 +19,7 @@ class CustomHeader extends React.Component {
         <Col  flex="100px">
           <Link href={"/"}>
             <a>
-             <Image src="/whitelogo.png" className={styles.logo} alt="Logo"  width={120} height= {60}  onClick={()=>store.dispatch({type: сurPageIndexActT, value:0})}></Image>
+             <Image src="/whitelogo.png" className={styles.logo} alt="Logo"  layout='fill' onClick={()=>store.dispatch({type: сurPageIndexActT, value:0})}></Image>
             </a>
          </Link>
         </Col>

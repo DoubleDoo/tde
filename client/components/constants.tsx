@@ -25,44 +25,44 @@ export const webmenu=new Array(
 export const imgCarousel=new Array(
     {
         name: "Оборудование ПС 35/10 кВ «Ново-Троицкая» г. Южно-Сахалинск",
-        link: "/mainCarousel/1.png"
+        link: "/mainCarousel/1.jpg"
     },
     {
         name: "Оборудование ПС 35/10 кВ «Совхоз Тепличный»",
-        link: "/mainCarousel/2.png"
+        link: "/mainCarousel/2.jpg"
     },
     {
         name: "Оборудование ПС 35/6 кВ «Аралия» г. Южно-Сахалинск",
-        link: "/mainCarousel/3.png"
+        link: "/mainCarousel/3.jpg"
     },
     {
         name: "Оборудование ПС 35/6 кВ «11 микрорайон»",
-        link: "/mainCarousel/4.png"
+        link: "/mainCarousel/4.jpg"
     },
     {
         name: "Оборудование ПС 35/6 кВ «11 микрорайон»",
-        link: "/mainCarousel/5.png"
+        link: "/mainCarousel/5.jpg"
     },
 )
 
 export const newsList=new Array(
     {
         name: "Оборудование ПС 35/10 кВ «Совхоз Тепличный»",
-        imglink: "/mainCarousel/2.png",
+        imglink: "/mainCarousel/2.jpg",
         text: "Вот так вот, почти хакончили стоительство",
         data: "15.02.2022", 
         newsLink: "/news/7" 
     },
     {
         name: "Оборудование ПС 35/6 кВ «Аралия» г. Южно-Сахалинск",
-        imglink: "/mainCarousel/3.png",
+        imglink: "/mainCarousel/3.jpg",
         text: "Вот так вот, почти хакончили стоительство",
         data: "16.02.2022", 
         newsLink: "/news/8" 
     },
     {
         name: "Начата разработка нового сайта",
-        imglink: "/mainCarousel/2.png",
+        imglink: "/mainCarousel/2.jpg",
         text: "Вот так дела, сайт",
         data: "17.02.2022", 
         newsLink: "/news/9" 
@@ -85,25 +85,25 @@ export const contacts=new Array(
         Phone: "+7 (423) 240-21-87",
         Fax: "+7 (423) 240-21-87",
         Time: "08:00 - 18:00",
-        LocalTime: "",
+        LocalTime: "Будет позже",
     },
     {
-        Title: "Управляющая компания",
-        Adress: "Москва, Центральная 56",
+        Title: "Второй офис",
+        Adress: "Челябинск, Центральная 56",
         Email: "test@gmail.com",
         Phone: "+7 (423) 240-21-87",
         Fax: "+7 (423) 240-21-87",
         Time: "08:00 - 18:00",
-        LocalTime: "",
+        LocalTime: "Будет позже",
     },
     {
-        Title: "Управляющая компания",
-        Adress: "Москва, Центральная 56",
+        Title: "Третий офис",
+        Adress: "Владивосток, Центральная 56",
         Email: "test@gmail.com",
         Phone: "+7 (423) 240-21-87",
         Fax: "+7 (423) 240-21-87",
         Time: "08:00 - 18:00",
-        LocalTime: "",
+        LocalTime: "Будет позже",
     }
 )
 
