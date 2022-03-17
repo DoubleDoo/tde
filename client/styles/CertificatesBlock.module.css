@@ -1,0 +1,18 @@
+.cblock{
+    height: 200px;
+}
+
+.rowblock{
+    padding: 10px;
+}
+
+.textblock
+{
+    height: 110px;
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+     -webkit-box-orient: vertical;
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+

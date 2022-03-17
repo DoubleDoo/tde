@@ -15,9 +15,9 @@ const { Header, Content, Footer } = Layout;
 
 const Contacts: NextPage = () => {
   return (
-    <Layout className="layout">
+    <Layout>
     <CustomHeader/>
-    <Content>
+    <Content className={styles.Content}>
       <ContactBlock/>
     </Content>
     <CustomFooter/>

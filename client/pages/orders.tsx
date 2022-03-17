@@ -8,17 +8,15 @@ import { Row, Col } from 'antd';
 import {ProjectsCarousel} from '../components/projectsCarousel';
 import {CustomHeader} from '../components/header';
 import {CustomFooter} from '../components/footer';
-
+import {Cap} from '../components/cap';
 
 const { Header, Content, Footer } = Layout;
 
 const Orders: NextPage = () => {
   return (
-    <Layout className="layout">
+    <Layout>
     <CustomHeader/>
-    <Content>
-      <div className="site-layout-content">Orders</div>
-    </Content>
+      <Cap/>
     <CustomFooter/>
   </Layout>
   )

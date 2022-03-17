@@ -17,9 +17,9 @@ const { Header, Content, Footer } = Layout;
 
 const Home: NextPage = () => {
   return (
-    <Layout className="layout">
+    <Layout>
     <CustomHeader/>
-    <Content>
+    <Content className={styles.Content}>
       <Row>
         <Col span={24}>
           <ProjectsCarousel/>

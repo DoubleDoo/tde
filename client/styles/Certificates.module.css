@@ -1,0 +1,10 @@
+.titlesBlock{
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+
+.Content{
+    background-color: white;
+    height: calc(100vh - 135px);
+}

@@ -139,7 +139,7 @@ class ContactBlock extends React.Component<Props, State> {
         </Col>
         <Col span={1} order={15} ></Col>
         <Col span={1} order={16} ></Col>
-        <Col xs={{ span: 0, order: 17 }} sm={{ span: 22, order: 17 }} lg={{ span: 10, order: 17 }}>
+        <Col xs={{ span: 0, order: 17 }} sm={{ span: 0, order: 17 }} lg={{ span: 10, order: 17 }}>
           <Divider />
         </Col>
         <Col span={1} order={18} ></Col>
