@@ -32,7 +32,7 @@ class LastProjects extends React.Component<Props, State> {
         <Col span={1}></Col>
         <Col span={22}>
           <Typography>
-            <Title className={styles.titlesBlock} type={"secondary"} level={1}>Последние проекты</Title>
+            <Title className={styles.titlesBlock} type={"secondary"} level={1}>Текущие проекты</Title>
           </Typography>
         </Col>
         <Col span={1}></Col>

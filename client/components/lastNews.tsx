@@ -32,7 +32,7 @@ class LastNews extends React.Component<Props, State> {
       <Col span={1}></Col>
       <Col span={22}>
         <Typography>
-          <Title className={styles.titlesBlock} type={"secondary"} level={1}>Последние новости</Title>
+          <Title className={styles.titlesBlock} type={"secondary"} level={1}>Текущие новости</Title>
         </Typography>
       </Col>
       <Col span={1}></Col>
