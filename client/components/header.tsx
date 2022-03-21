@@ -16,12 +16,14 @@ class CustomHeader extends React.Component {
     render() {
       return <Layout.Header className="header">
       <Row wrap={false}>
-        <Col  flex="100px">
+        <Col  flex="150px">
+        <div className={styles.imgbox}>
           <Link href={"/"}>
             <a>
-             <Image src="/whitelogo.png" className={styles.logo} alt="Logo"  layout='fill' onClick={()=>store.dispatch({type: сurPageIndexActT, value:0})}></Image>
+             <Image src="/whitelogo.png" className={styles.img} alt="Logo"  layout='fill' onClick={()=>store.dispatch({type: сurPageIndexActT, value:0})}></Image>
             </a>
          </Link>
+         </div>
         </Col>
         <Col  flex="auto"><Menu theme="dark" mode="horizontal" selectedKeys={(store.getState().сurPageIndex).toString()}>
           {webmenu.map((item, index) => {
@@ -37,3 +39,10 @@ class CustomHeader extends React.Component {
 
 export { CustomHeader }
 
+{/* <div key={index} className={styles.imgbox}>
+<Image src={image.link}  className={styles.img}  
+  layout="responsive"
+  width={500}
+  height={200}
+/>
+</div> */}

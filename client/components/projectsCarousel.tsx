@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 import React from 'react';
-import styles from '../styles/projectsCarousel.module.css'
+import styles from '../styles/ProjectsCarousel.module.css'
 import { Carousel } from 'antd';
 import 'antd/dist/antd.css';
 import {imgCarousel} from "./constants"
@@ -30,16 +30,17 @@ class ProjectsCarousel extends React.Component<Props, State> {
     }
 
     render() { 
-        return  <Carousel autoplay>
+      return  <Carousel autoplay>
         {imgCarousel.map((image, index) => (
-          <div key={index}>
-            <Image src={image.link}    
+          <div key={index} className={styles.imgbox}>
+            <Image src={image.link}  className={styles.img}  
               layout="responsive"
               width={500}
               height={200}
             />
           </div>
-        ))}
+        ))} 
+        
       </Carousel>
       
     }

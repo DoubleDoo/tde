@@ -1,4 +1,101 @@
 .Content{
     background-color: white;
-    height: calc(100vh - 135px);
+    /* height: calc(100vh - 135px); */
+}
+
+.tagBox{
+    padding-right: 8px;
+    padding-bottom: 8px;
+}
+
+.tag{
+    height: 32px;
+}
+
+.imgbox{
+    width: 100%;
+    min-height: 200px;
+    border-style: solid;
+}
+
+.bigimgbox{
+    width: 100%;
+    min-height: 600px;
+    border-style: solid;
+}
+
+.img{
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.newsCard{
+    padding: 10px;
+}
+
+.smallNewsCard{
+    padding: 15px;
+}
+
+.smallTextCard{
+font-size: 15px;
+}
+
+.smallTitleCard{
+    font-size: 20px;
+    height: 90px;
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+     -webkit-box-orient: vertical;
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+
+.smallDataCard{
+    font-size: 10px;
+    margin-top: -20px;
+}
+
+.newsTextWrap{
+    height: 150px;
+}
+
+.infolink{
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.bigimg{
+    padding: 15px;
+}
+
+.textimg{
+    padding-left: 20px;
+    margin-top: -10px;
+}
+.textimgnopad{
+    margin-top: -10px;
+}
+
+.bigTitleCard{
+    font-size: 40px;
+}
+
+.devider{
+    margin-top: 10px;
+}
+
+.newsText{
+    font-size: 20px;
+    height: 100%;
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    display: -webkit-box;
+    -webkit-line-clamp: 20;
+     -webkit-box-orient: vertical;
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+
+.pagin{
+    padding-bottom: 50px;
 }

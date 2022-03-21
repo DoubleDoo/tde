@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Certificates.module.css'
 import 'antd/dist/antd.css';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Breadcrumb,Divider  } from 'antd';
 import { Row, Col } from 'antd';
 import { ProjectsCarousel } from '../components/projectsCarousel';
 import { CustomHeader } from '../components/header';
@@ -37,7 +37,7 @@ const Certificates: NextPage = () => {
           <Col span={1}>
           </Col>
           <Col span={22}>
-            <Row >
+            <Row justify="start" >
             {certificates.map((cerf, index) => (<Col key={index+"cerfcol"} xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 12 }} lg={{ span: 8 }}>
                 <CertificatesBlock obj={cerf}/>
               </Col>))}
