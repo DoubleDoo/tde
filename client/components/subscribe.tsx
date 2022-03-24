@@ -1,11 +1,7 @@
 import React from 'react';
 import styles from '../styles/Subscribe.module.css'
-import { Carousel } from 'antd';
 import 'antd/dist/antd.css';
-import {imgCarousel} from "./constants"
 import Image from 'next/image'
-import {Image as AImage} from 'antd' ; 
-import {newsList} from "./constants"
 import { Card } from 'antd';
 import { Row, Col } from 'antd';
 import { Typography } from 'antd';
@@ -22,67 +18,70 @@ type State = {
 };
 
 class Subscribe extends React.Component<Props, State> {
-  
-    constructor (props:Props) {
-      super(props)
-    }
 
-    render() {  
-      return <> <Row className={styles.block}>
+  constructor(props: Props) {
+    super(props)
+  }
+
+  render() {
+    return <div className={styles.block}> 
+    <Row>
       <Col span={1}></Col>
-      <Col xs={{span: 22}} sm={{span: 16}} lg={{span: 16}}>
+      <Col xs={{ span: 22 }} sm={{ span: 16 }} lg={{ span: 16 }}>
         <Typography>
-          <Title className={styles.titlesBlock} type={"secondary"} level={1}>
-          Подпишитесь на нашу новостную рассылку, чтобы получать самую актуальную информацию о новых продуктах нашей компании
+          <Title className={styles.title}>
+            Подпишитесь на нашу новостную рассылку, чтобы получать самую актуальную информацию о новых продуктах нашей компании
           </Title>
         </Typography>
       </Col>
-      <Col xs={{span: 1}} sm={{span: 7}} lg={{span: 7}}></Col>
+      <Col xs={{ span: 1 }} sm={{ span: 7 }} lg={{ span: 7 }}></Col>
     </Row>
-    <Row className={styles.block}>
+      <Row>
 
-      <Col span={1}></Col>
-      <Col span={22}>
+        <Col span={1}></Col>
+        <Col span={22}>
           <Form
-                name="basic"
-                initialValues={{ remember: true }}
-                onFinish={()=>{}}
-                onFinishFailed={()=>{}}
-                autoComplete="off"
-              >
-            <Form.Item 
-            wrapperCol={{span: 12, offset: 0}} 
-            labelCol={{span: 24, offset: 0}}
-              label= "Как к вам можно обращаться?"
+            name="basic"
+            initialValues={{ remember: true }}
+            onFinish={() => { }}
+            onFinishFailed={() => { }}
+            autoComplete="off"
+          >
+            <Form.Item
+              wrapperCol={{ span: 12, offset: 0 }}
+              labelCol={{ span: 24, offset: 0 }}
+              label="Как к вам можно обращаться?"
               name="username"
-              rules={[{ required: true, message: 'ФИО' }]}
+              rules={[{ required: true, message: 'ФИО' }]} 
+              className={styles.text}
             >
-            <Input />
+              <Input />
             </Form.Item>
 
             <Form.Item
-            wrapperCol={{span: 12, offset: 0}} 
-            labelCol={{span: 24, offset: 0}}
+              wrapperCol={{ span: 12, offset: 0 }}
+              labelCol={{ span: 24, offset: 0 }}
               label="Укажите ваш почтовый ящик"
               name="email"
               rules={[{ required: true, message: 'Адрес электронной почты' }]}
+              className={styles.text}
             >
-            <Input/>
+              <Input />
             </Form.Item>
 
-            <Form.Item 
+            <Form.Item
             >
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" className={styles.text}>
                 Подписаться
               </Button>
             </Form.Item>
           </Form>
-      </Col>
-      <Col span={1}></Col>
-    </Row>
-    </>
-    }
+        </Col>
+        <Col span={1}></Col>
+      </Row>
+    </div>
   }
+}
 
 export { Subscribe }
 

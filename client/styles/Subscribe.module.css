@@ -1,10 +1,12 @@
 .block{
-    /* align-content: center; */
-    /* text-align: center; */
-    /* height: 200px; */
-    background-color: white;
+padding-top: 40px;
 }
 
-.titlesBlock{
-    padding-top: 30px;
-  }
+.title{
+font-size:xx-large;
+}
+
+.text label
+{
+font-size:large;
+}

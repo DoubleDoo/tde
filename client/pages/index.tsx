@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import styles from '../styles/Home.module.css'
 import { Layout} from 'antd';
 import { Row, Col } from 'antd';
-import {ProjectsCarousel} from '../components/projectsCarousel';
+import {MainCarousel} from '../components/mainCarousel';
 import {LastNews} from '../components/lastNews';
 import {CustomHeader} from '../components/header';
 import {CustomFooter} from '../components/footer';
@@ -19,31 +19,19 @@ const Home: NextPage = () => {
   return (
     <Layout>
     <CustomHeader/>
-    <Content className={styles.Content}>
+    <Content className={styles.content}>
       <Row>
         <Col span={24}>
-          <ProjectsCarousel/>
+          <MainCarousel/>
         </Col>
         <Col span={24}>
           <AboutBlock/>
         </Col>
         <Col span={24}>
-        <SolutionsBlock/>
-        </Col>
-        <Col span={24}>
-          <LastProjects/>
-        </Col>
-        <Col span={24}>
-          <LastNews/>
-        </Col>
-        <Col span={24}>
-         <Partners/>
+          <SolutionsBlock/>
         </Col>
         <Col span={24}>
           <Subscribe/>
-        </Col>
-        <Col span={24}>
-          {/* <Test/> */}
         </Col>
       </Row>
     </Content>
@@ -53,4 +41,5 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
 

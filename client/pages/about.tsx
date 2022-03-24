@@ -5,13 +5,12 @@ import styles from '../styles/About.module.css'
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb, Card, Button } from 'antd';
 import { Row, Col } from 'antd';
-import { ProjectsCarousel } from '../components/projectsCarousel';
 import { CustomHeader } from '../components/header';
 import { CustomFooter } from '../components/footer';
 import { Cap } from '../components/cap';
 import { Image as AImage } from 'antd';
 import { Typography } from 'antd';
-import { newsList,newsTags } from "../components/constants"
+import { newsList,newsTags } from "../components/bd"
 
 const { Header, Content, Footer } = Layout;
 const { Meta } = Card;

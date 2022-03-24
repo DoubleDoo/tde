@@ -2,10 +2,10 @@ import React from 'react';
 import styles from '../styles/ContactBlock.module.css'
 import { Carousel } from 'antd';
 import 'antd/dist/antd.css';
-import { contacts } from "./constants"
+import { contacts } from "./bd"
 import Image from 'next/image'
 import { Image as AImage } from 'antd';
-import { newsList } from "./constants"
+import { newsList } from "./bd"
 import { Card } from 'antd';
 import { Row, Col } from 'antd';
 import { Typography, Divider } from 'antd';

@@ -5,14 +5,13 @@ import styles from '../styles/News.module.css'
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb, Card, Button, Tag, Select, Divider } from 'antd';
 import { Row, Col,Grid } from 'antd';
-import { ProjectsCarousel } from '../components/projectsCarousel';
 import { CustomHeader } from '../components/header';
 import { CustomFooter } from '../components/footer';
 import { Cap } from '../components/cap';
 import { Image as AImage } from 'antd';
 import { Typography } from 'antd';
 import { CloseOutlined,ArrowRightOutlined } from '@ant-design/icons';
-import { newsList, newsTags } from "../components/constants"
+import { newsList, newsTags } from "../components/bd"
 import { Pagination } from 'antd';
 
 const { Header, Content, Footer } = Layout;

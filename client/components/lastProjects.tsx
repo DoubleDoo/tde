@@ -3,10 +3,10 @@ import React from 'react';
 import styles from '../styles/LastProjects.module.css'
 import { Carousel } from 'antd';
 import 'antd/dist/antd.css';
-import {imgCarousel} from "./constants"
+import {imgCarousel} from "./bd"
 import Image from 'next/image'
 import {Image as AImageб} from 'antd' ; 
-import {projList} from "./constants"
+import {projList} from "./bd"
 import { Card,Divider } from 'antd';
 import { Row, Col } from 'antd';
 import { Typography } from 'antd';

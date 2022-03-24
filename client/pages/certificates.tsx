@@ -5,13 +5,12 @@ import styles from '../styles/Certificates.module.css'
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb,Divider  } from 'antd';
 import { Row, Col } from 'antd';
-import { ProjectsCarousel } from '../components/projectsCarousel';
 import { CustomHeader } from '../components/header';
 import { CustomFooter } from '../components/footer';
 import Link from 'next/link'
 import { CertificatesBlock } from "../components/certificatesBlock"
 import { Typography } from 'antd';
-import{certificates,protocols} from "../components/constants"
+import{certificates,protocols} from "../components/bd"
 
 const { Title, Paragraph, Text } = Typography;
 
