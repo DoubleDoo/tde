@@ -10,3 +10,12 @@
     padding-top: 5px;
     /* height: calc(100vh - 135px); */
 }
+
+.title{
+    font-size:xx-large;
+  }
+  
+  .block{
+    padding-top: 30px;
+    padding-left: 10px;
+}

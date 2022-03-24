@@ -1,16 +1,12 @@
-import { Button } from 'antd';
 import React from 'react';
-import styles from '../styles/LastNews.module.css'
-import { Carousel } from 'antd';
+import styles from '../styles/LastNewsBlock.module.css'
 import 'antd/dist/antd.css';
-import {imgCarousel} from "./bd"
 import Image from 'next/image'
-import {Image as AImage} from 'antd' ; 
 import {newsList} from "./bd"
 import { Card } from 'antd';
 import { Row, Col,Grid,Divider } from 'antd';
 import { Typography } from 'antd';
-import { CloseOutlined,ArrowRightOutlined } from '@ant-design/icons';
+import {ArrowRightOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
 const { Title, Paragraph, Text, Link } = Typography;
@@ -22,7 +18,7 @@ type State = {
 
 };
 
-class LastNews extends React.Component<Props, State> {
+class LastNewsBlock extends React.Component<Props, State> {
   
     constructor (props:Props) {
       super(props)
@@ -81,5 +77,5 @@ class LastNews extends React.Component<Props, State> {
     }
   }
 
-export { LastNews }
+export { LastNewsBlock }
 

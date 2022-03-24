@@ -1,13 +1,11 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Contacts.module.css'
 import 'antd/dist/antd.css';
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { Row, Col } from 'antd';
+import { Layout} from 'antd';
 import {CustomHeader} from '../components/header';
 import {CustomFooter} from '../components/footer';
 import {ContactBlock} from "../components/contactBlock"
+import {RekvizBlock} from "../components/RekvizBlock"
 
 
 const { Header, Content, Footer } = Layout;
@@ -16,7 +14,8 @@ const Contacts: NextPage = () => {
   return (
     <Layout>
     <CustomHeader/>
-    <Content className={styles.Content}>
+    <Content className={styles.content}>
+      <RekvizBlock/>
       <ContactBlock/>
     </Content>
     <CustomFooter/>

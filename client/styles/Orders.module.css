@@ -1,4 +1,8 @@
-.Content{
+.content{
     background-color: white;
-    height: calc(100vh - 135px);
+}
+
+.block{
+    padding-top: 30px;
+    padding-left: 10px;
 }

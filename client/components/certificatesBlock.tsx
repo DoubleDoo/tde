@@ -1,22 +1,12 @@
-import { Button } from 'antd';
 import React from 'react';
 import styles from '../styles/CertificatesBlock.module.css'
-import { Carousel } from 'antd';
 import 'antd/dist/antd.css';
-import {imgCarousel} from "./bd"
-import Image from 'next/image'
-import {Image as AImage} from 'antd' ; 
-import {newsList} from "./bd"
 import { Card } from 'antd';
-import { Row, Col } from 'antd';
-import { Typography } from 'antd';
-import {certificates} from './bd';
 import {
   DownloadOutlined
 } from '@ant-design/icons';
 
 const { Meta } = Card;
-const { Title, Paragraph, Text, Link } = Typography;
 
 type Props = {
 obj:{

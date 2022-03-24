@@ -4,3 +4,16 @@
     text-align: center;
     padding-top: calc(80vh / 2);
 }
+
+.block{
+    padding-top: 40px;
+}
+
+.title{
+    font-size:xx-large;
+}
+
+.text
+{
+    font-size:large;
+}

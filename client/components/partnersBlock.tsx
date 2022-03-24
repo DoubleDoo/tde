@@ -1,17 +1,11 @@
-import { Button } from 'antd';
 import React from 'react';
-import styles from '../styles/Partners.module.css'
-import { Carousel } from 'antd';
+import styles from '../styles/PartnersBlock.module.css'
 import 'antd/dist/antd.css';
-import Image from 'next/image'
-import {Image as AImage} from 'antd' ; 
-import {newsList} from "./bd"
 import { Card } from 'antd';
 import { Row, Col } from 'antd';
 import { Typography } from 'antd';
 
-const { Meta } = Card;
-const { Title, Paragraph, Text, Link } = Typography;
+const { Title } = Typography;
 
 type Props = {
 
@@ -20,7 +14,7 @@ type State = {
 
 };
 
-class Partners extends React.Component<Props, State> {
+class PartnersBlock extends React.Component<Props, State> {
   
     constructor (props:Props) {
       super(props)
@@ -39,5 +33,5 @@ class Partners extends React.Component<Props, State> {
     }
   }
 
-export { Partners }
+export { PartnersBlock }
 

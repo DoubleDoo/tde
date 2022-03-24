@@ -1,11 +1,7 @@
 import { Button } from 'antd';
 import React from 'react';
-import styles from '../styles/Test.module.css'
-import { Carousel } from 'antd';
+import styles from '../styles/TestBlock.module.css'
 import 'antd/dist/antd.css';
-import Image from 'next/image'
-import {Image as AImage} from 'antd' ; 
-import {newsList} from "./bd"
 import { Card } from 'antd';
 import { Row, Col } from 'antd';
 import { Typography } from 'antd';
@@ -22,7 +18,7 @@ type State = {
 
 };
 
-class Test extends React.Component<Props, State> {
+class TestBlock extends React.Component<Props, State> {
   
     constructor (props:Props) {
       super(props)
@@ -39,7 +35,7 @@ class Test extends React.Component<Props, State> {
     }
   }
 
-export { Test }
+export { TestBlock }
 
 
 // import {сurPageIndexActT} from '../.store/actions/сurPageIndex';

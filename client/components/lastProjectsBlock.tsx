@@ -1,19 +1,15 @@
-import { Button } from 'antd';
 import React from 'react';
-import styles from '../styles/LastProjects.module.css'
-import { Carousel } from 'antd';
+import styles from '../styles/LastProjectsBlock.module.css'
 import 'antd/dist/antd.css';
-import {imgCarousel} from "./bd"
 import Image from 'next/image'
-import {Image as AImageб} from 'antd' ; 
 import {projList} from "./bd"
 import { Card,Divider } from 'antd';
 import { Row, Col } from 'antd';
 import { Typography } from 'antd';
-import { CloseOutlined,ArrowRightOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
-const { Title, Paragraph, Text, Link } = Typography;
+const { Title, Paragraph} = Typography;
 
 type Props = {
 
@@ -22,7 +18,7 @@ type State = {
 
 };
 
-class LastProjects extends React.Component<Props, State> {
+class LastProjectsBlock extends React.Component<Props, State> {
   
     constructor (props:Props) {
       super(props)
@@ -53,7 +49,6 @@ class LastProjects extends React.Component<Props, State> {
                             {image.data}
                           </Paragraph>
                           <Paragraph className={styles.smallTitleCard} type={"secondary"}>{image.name}</Paragraph>
-                          {/* <Paragraph className={styles.smallTextCard} type={"secondary"}>{image.text}</Paragraph> */}
                         </Typography>
                       </Col>
                       <Col span={24}>
@@ -82,5 +77,5 @@ class LastProjects extends React.Component<Props, State> {
     }
   }
 
-export { LastProjects }
+export { LastProjectsBlock }
 

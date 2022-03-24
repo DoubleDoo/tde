@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/ProjectsCarousel.module.css'
+import styles from '../styles/MainCarouselBlock.module.css'
 import { Carousel } from 'antd';
 import 'antd/dist/antd.css';
 import { mainCarouselContent } from "./bd"
@@ -12,7 +12,7 @@ type State = {
 
 };
 
-class MainCarousel extends React.Component<Props, State> {
+class MainCarouselBlock extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props)
@@ -43,4 +43,4 @@ class MainCarousel extends React.Component<Props, State> {
   }
 }
 
-export { MainCarousel }
+export { MainCarouselBlock }

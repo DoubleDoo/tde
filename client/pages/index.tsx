@@ -1,17 +1,16 @@
 import type { NextPage } from 'next'
 import styles from '../styles/Home.module.css'
+
 import { Layout} from 'antd';
 import { Row, Col } from 'antd';
-import {MainCarousel} from '../components/mainCarousel';
-import {LastNews} from '../components/lastNews';
+
+import {MainCarouselBlock} from '../components/MainCarouselBlock';
 import {CustomHeader} from '../components/header';
 import {CustomFooter} from '../components/footer';
 import {AboutBlock} from '../components/aboutBlock';
-import { LastProjects } from '../components/lastProjects';
 import { SolutionsBlock } from '../components/solutionsBlock';
-import { Partners } from '../components/partners';
-import { Subscribe } from '../components/subscribe';
-import { Test } from '../components/test';
+import { SubscribeBlock } from '../components/subscribeBlock';
+
 
 const { Header, Content, Footer } = Layout;
 
@@ -22,7 +21,7 @@ const Home: NextPage = () => {
     <Content className={styles.content}>
       <Row>
         <Col span={24}>
-          <MainCarousel/>
+          <MainCarouselBlock/>
         </Col>
         <Col span={24}>
           <AboutBlock/>
@@ -31,7 +30,7 @@ const Home: NextPage = () => {
           <SolutionsBlock/>
         </Col>
         <Col span={24}>
-          <Subscribe/>
+          <SubscribeBlock/>
         </Col>
       </Row>
     </Content>

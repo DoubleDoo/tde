@@ -1,11 +1,10 @@
 import React from 'react';
-import styles from '../styles/Subscribe.module.css'
+import styles from '../styles/SubscribeBlock.module.css'
 import 'antd/dist/antd.css';
-import Image from 'next/image'
 import { Card } from 'antd';
 import { Row, Col } from 'antd';
 import { Typography } from 'antd';
-import { Form, Input, Button, Space } from 'antd';
+import { Form, Input, Button } from 'antd';
 
 const { Meta } = Card;
 const { Title, Paragraph, Text, Link } = Typography;
@@ -17,7 +16,7 @@ type State = {
 
 };
 
-class Subscribe extends React.Component<Props, State> {
+class SubscribeBlock extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props)
@@ -29,7 +28,7 @@ class Subscribe extends React.Component<Props, State> {
       <Col span={1}></Col>
       <Col xs={{ span: 22 }} sm={{ span: 16 }} lg={{ span: 16 }}>
         <Typography>
-          <Title className={styles.title}>
+          <Title level={2}>
             Подпишитесь на нашу новостную рассылку, чтобы получать самую актуальную информацию о новых продуктах нашей компании
           </Title>
         </Typography>
@@ -53,7 +52,6 @@ class Subscribe extends React.Component<Props, State> {
               label="Как к вам можно обращаться?"
               name="username"
               rules={[{ required: true, message: 'ФИО' }]} 
-              className={styles.text}
             >
               <Input />
             </Form.Item>
@@ -64,7 +62,6 @@ class Subscribe extends React.Component<Props, State> {
               label="Укажите ваш почтовый ящик"
               name="email"
               rules={[{ required: true, message: 'Адрес электронной почты' }]}
-              className={styles.text}
             >
               <Input />
             </Form.Item>
@@ -83,5 +80,5 @@ class Subscribe extends React.Component<Props, State> {
   }
 }
 
-export { Subscribe }
+export { SubscribeBlock }
 

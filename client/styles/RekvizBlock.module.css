@@ -11,15 +11,10 @@
   }
 
   .block{
-    background-color: white;
+    margin-top: 30px;
   }
 
-  .firstblock{
-    background-color: white;
-    padding-top: 30px;
-  }
-
-  .block{
+  /* .block{
     padding-top: 40px;
   }
   
@@ -29,6 +24,6 @@
   
   .text
   {
-    font-size:medium;
+    font-size:large;
   }
-  
+   */

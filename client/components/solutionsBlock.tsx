@@ -26,7 +26,7 @@ class SolutionsBlock extends React.Component<Props, State> {
         <Col span={1} />
         <Col span={22}>
           <Typography>
-            <Title className={styles.title}>Типовые решения</Title>
+            <Title  level={2} >Типовые решения</Title>
           </Typography>
         </Col>
         <Col span={1} />
@@ -46,7 +46,7 @@ class SolutionsBlock extends React.Component<Props, State> {
         <Col span={1} order={7} />
         <Col xs={{ span: 22, order: 5 }} sm={{ span: 10, order: 8 }} lg={{ span: 10, order: 8 }}>
           <Typography>
-            <Paragraph className={styles.text}>
+            <Paragraph>
               <ol>
                 <li>
                   БКТП от 6 до 35кВ с использованием оболочек из бетона производства «Бастион»
@@ -62,7 +62,7 @@ class SolutionsBlock extends React.Component<Props, State> {
         <Col span={1} order={10} />
         <Col xs={{ span: 22, order: 11 }} sm={{ span: 10, order: 11 }} lg={{ span: 10, order: 11 }}>
           <Typography>
-            <Paragraph className={styles.text}>
+            <Paragraph>
               <ol start={3}>
                 <li>
                   Блочно Модульные здания

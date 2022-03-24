@@ -1,14 +1,11 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/News.module.css'
 import 'antd/dist/antd.css';
-import { Layout, Menu, Breadcrumb, Card, Button, Tag, Select, Divider } from 'antd';
+import { Layout, Card, Button,  Select, Divider } from 'antd';
 import { Row, Col,Grid } from 'antd';
 import { CustomHeader } from '../components/header';
 import { CustomFooter } from '../components/footer';
-import { Cap } from '../components/cap';
-import { Image as AImage } from 'antd';
 import { Typography } from 'antd';
 import { CloseOutlined,ArrowRightOutlined } from '@ant-design/icons';
 import { newsList, newsTags } from "../components/bd"
@@ -31,7 +28,7 @@ const News: NextPage = () => {
         </Col>
         <Col span={22}>
           <Typography>
-            <Title className={styles.bigimg} type={"secondary"} level={1}>Новости</Title>
+            <Title className={styles.block} level={2}>Новости</Title>
           </Typography>
 
         </Col>
