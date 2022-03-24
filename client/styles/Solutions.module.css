@@ -1,5 +1,6 @@
 .content{
-    background-color: white;
+  background-color: white;
+  height: calc(100vh - 135px);
 }
 
 .block{

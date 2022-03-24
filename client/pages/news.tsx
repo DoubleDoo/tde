@@ -2,12 +2,12 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import styles from '../styles/News.module.css'
 import 'antd/dist/antd.css';
-import { Layout, Card, Button,  Select, Divider } from 'antd';
-import { Row, Col,Grid } from 'antd';
+import { Layout, Card, Button, Select, Divider } from 'antd';
+import { Row, Col, Grid } from 'antd';
 import { CustomHeader } from '../components/header';
 import { CustomFooter } from '../components/footer';
 import { Typography } from 'antd';
-import { CloseOutlined,ArrowRightOutlined } from '@ant-design/icons';
+import { CloseOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { newsList, newsTags } from "../components/bd"
 import { Pagination } from 'antd';
 
@@ -23,68 +23,68 @@ const News: NextPage = () => {
     <Layout>
       <CustomHeader />
       <Content className={styles.Content}>
-      <Row>
-        <Col span={1}>
-        </Col>
-        <Col span={22}>
-          <Typography>
-            <Title className={styles.block} level={2}>Новости</Title>
-          </Typography>
+        <Row>
+          <Col span={1}>
+          </Col>
+          <Col span={22}>
+            <Typography>
+              <Title className={styles.block} level={2}>Новости</Title>
+            </Typography>
 
-        </Col>
-        <Col span={1}>
-        </Col>
-      </Row>
+          </Col>
+          <Col span={1}>
+          </Col>
+        </Row>
 
-      <Row>
-        <Col span={1}>
-        </Col>
-        <Col span={22}>
-          <Row className={styles.bigimg}>
-            {newsTags.map((image, index) => (
-              <Col className={styles.tagBox} key={index}>
-                <Button className={styles.tag}>
-                  {image.tag}
+        <Row>
+          <Col span={1}>
+          </Col>
+          <Col span={22}>
+            <Row className={styles.bigimg}>
+              {newsTags.map((image, index) => (
+                <Col className={styles.tagBox} key={index}>
+                  <Button className={styles.tag}>
+                    {image.tag}
+                  </Button>
+                </Col>))}
+              <Col className={styles.tagBox}>
+                <Select placeholder="Год" style={{ width: 120 }} className={styles.tag}>
+                  <Option value="2021">2021</Option>
+                  <Option value="2022">2022</Option>
+                </Select>
+              </Col>
+              <Col className={styles.tagBox}>
+                <Select placeholder="Месяц" style={{ width: 120 }} className={styles.tag}>
+                  <Option value="1">Январь</Option>
+                  <Option value="2">Февраль</Option>
+                  <Option value="3">Март</Option>
+                  <Option value="4">Апрель</Option>
+                  <Option value="5">Май</Option>
+                  <Option value="6">Июнь</Option>
+                  <Option value="7">Июль</Option>
+                  <Option value="8">Август</Option>
+                  <Option value="9">Сентябрь</Option>
+                  <Option value="10">Октябрь</Option>
+                  <Option value="11">Ноябрь</Option>
+                  <Option value="12">Декабрь</Option>
+                </Select>
+              </Col>
+              <Col className={styles.tagBox}>
+                <Button danger type="primary" icon={<CloseOutlined />}>
+                  Сбросить фильтры
                 </Button>
-              </Col>))}
-            <Col className={styles.tagBox}>
-              <Select placeholder="Год" style={{ width: 120 }} className={styles.tag}>
-                <Option value="2021">2021</Option>
-                <Option value="2022">2022</Option>
-              </Select>
-            </Col>
-            <Col className={styles.tagBox}>
-              <Select placeholder="Месяц" style={{ width: 120 }} className={styles.tag}>
-                <Option value="1">Январь</Option>
-                <Option value="2">Февраль</Option>
-                <Option value="3">Март</Option>
-                <Option value="4">Апрель</Option>
-                <Option value="5">Май</Option>
-                <Option value="6">Июнь</Option>
-                <Option value="7">Июль</Option>
-                <Option value="8">Август</Option>
-                <Option value="9">Сентябрь</Option>
-                <Option value="10">Октябрь</Option>
-                <Option value="11">Ноябрь</Option>
-                <Option value="12">Декабрь</Option>
-              </Select>
-            </Col>
-            <Col className={styles.tagBox}>
-              <Button danger type="primary" icon={<CloseOutlined />}>
-                Сбросить фильтры
-              </Button>
-            </Col>
-          </Row>
-        </Col>
-        <Col span={1}>
-        </Col>
-      </Row>
-      <Row>
-        <Col span={1}>
-        </Col>
-        <Col span={22}>
-          <Row>
-          {!screens["sm"] ? <></> :
+              </Col>
+            </Row>
+          </Col>
+          <Col span={1}>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={1}>
+          </Col>
+          <Col span={22}>
+            <Row>
+              {/* {!screens["sm"] ? <></> :
             <Col span={24}>
               <Row className={styles.bigimg}>
                 <Col xs={{ span: 24, order: 2}} sm={{ span: 24, order: 2  }} md={{ span: 24, order: 2  }} lg={{ span: 16, order: 1  }}>
@@ -116,49 +116,75 @@ const News: NextPage = () => {
                       </Typography>
                     </Col>}
               </Row>
-            </Col>}
+            </Col>} */}
 
-
-            {newsList.map((image, index) => (
-              index == 0&&screens["sm"] ? <></> :
-                <Col xs={{ span: 24, order: 0 }} sm={{ span: 12, order: 0  }} md={{ span: 8, order: 0  }} lg={{ span: 6, order: 0  }} key={index} className={styles.smallNewsCard}>
-                  <Row>
-                    <Col span={24} className={styles.newsTextWrap}>
-                      <Divider />
-                      <Typography>
-                        <Paragraph className={styles.smallDataCard} type={"secondary"}>
-                          {image.data}
-                        </Paragraph>
-                        <Paragraph className={styles.smallTitleCard} type={"secondary"}>{image.name}</Paragraph>
-                        {/* <Paragraph className={styles.smallTextCard} type={"secondary"}>{image.text}</Paragraph> */}
-                      </Typography>
-                    </Col>
-                    <Col span={24}>
-                      <div className={styles.imgbox}>
+              {!screens["sm"] ? <></> :
+              <Col xs={{ span: 24}} sm={{ span: 24}} md={{ span:24}} lg={{ span: 24}} className={styles.smallNewsCard}>
+                    <Row>
+                      <Col span={24} className={styles.newsTextWrap}>
+                        <Divider />
+                        <Typography>
+                          <Paragraph className={styles.smallDataCard}>
+                            {newsList[0].data}
+                          </Paragraph>
+                          <Paragraph className={styles.smallTitleCard}>{newsList[0].name}</Paragraph>
+                        </Typography>
+                      </Col>
+                      <Col span={24}>
+                        {/* <div className={styles.imgbox}>
                         <Image className={styles.img} alt="example" src={image.imglink} layout="fill" />
-                      </div>
-                    </Col>
-                    <Col span={24}>
-                      <Typography>
-                        <Paragraph className={styles.infolink} type={"secondary"}>Подробнее <ArrowRightOutlined /></Paragraph>
-                      </Typography>
-                    </Col>
-                  </Row>
-                </Col>))}
-          </Row>
-        </Col>
-        <Col span={1} />
-      </Row>
-      <Row justify="center">
-        <Col className={styles.pagin}>
-        <Pagination defaultCurrent={1} total={500} />
-        </Col>
+                      </div> */}
+                        <Paragraph className={styles.smallTextCard}>{newsList[0].text}</Paragraph>
+                      </Col>
+                      <Col span={24}>
+                        <Typography>
+                          <Paragraph className={styles.infolink}>Подробнее <ArrowRightOutlined /></Paragraph>
+                        </Typography>
+                      </Col>
+                    </Row>
+                  </Col>}
+
+
+              {newsList.map((image, index) => (
+                index == 0 && screens["sm"] ? <></> :
+                  <Col xs={{ span: 24, order: 0 }} sm={{ span: 12, order: 0 }} md={{ span: 8, order: 0 }} lg={{ span: 6, order: 0 }} key={index} className={styles.smallNewsCard}>
+                    <Row>
+                      <Col span={24} className={styles.newsTextWrap}>
+                        <Divider />
+                        <Typography>
+                          <Paragraph className={styles.smallDataCard}>
+                            {image.data}
+                          </Paragraph>
+                          <Paragraph className={styles.smallTitleCard}>{image.name}</Paragraph>
+                        </Typography>
+                      </Col>
+                      <Col span={24}>
+                        {/* <div className={styles.imgbox}>
+                        <Image className={styles.img} alt="example" src={image.imglink} layout="fill" />
+                      </div> */}
+                        <Paragraph className={styles.smallTextCard}>{image.text}</Paragraph>
+                      </Col>
+                      <Col span={24}>
+                        <Typography>
+                          <Paragraph className={styles.infolink}>Подробнее <ArrowRightOutlined /></Paragraph>
+                        </Typography>
+                      </Col>
+                    </Row>
+                  </Col>))}
+            </Row>
+          </Col>
+          <Col span={1} />
+        </Row>
+        <Row justify="center">
+          <Col className={styles.pagin}>
+            <Pagination defaultCurrent={1} total={500} />
+          </Col>
 
         </Row>
 
 
 
-      
+
 
       </Content>
       <CustomFooter />
