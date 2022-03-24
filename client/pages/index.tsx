@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import { Layout} from 'antd';
 import { Row, Col } from 'antd';
 
-import {MainCarouselBlock} from '../components/MainCarouselBlock';
+import {MainCarouselBlock} from '../components/mainCarouselBlock';
 import {CustomHeader} from '../components/header';
 import {CustomFooter} from '../components/footer';
 import {AboutBlock} from '../components/aboutBlock';
