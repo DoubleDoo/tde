@@ -5,7 +5,7 @@ import { Layout} from 'antd';
 import {CustomHeader} from '../components/header';
 import {CustomFooter} from '../components/footer';
 import {ContactBlock} from "../components/contactBlock"
-import {RekvizBlock} from "../components/RekvizBlock"
+import {RekvizBlock} from "../components/rekvizBlock"
 
 
 const { Header, Content, Footer } = Layout;
