@@ -14,9 +14,10 @@
 }
 
 
-/* .Content{
+.content{
     background-color: white;
-    padding-bottom: 25px;
-    padding-top: 5px;
-    /* height: calc(100vh - 135px); 
-} */
+    /* padding-bottom: 25px;
+    padding-top: 5px; */
+    /* height: calc(100vh - 135px); */
+    min-height: calc(100vh - 135px);
+}

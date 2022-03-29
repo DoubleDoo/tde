@@ -1,4 +1,4 @@
-export const webmenu=new Array(
+export const webmenu = new Array(
     {
         name: "Контакты",
         link: "/contacts"
@@ -26,7 +26,7 @@ export const webmenu=new Array(
 )
 
 
-export const mainCarouselContent=new Array(
+export const mainCarouselContent = new Array(
     {
         name: "Оборудование ПС 35/10 кВ «Ново-Троицкая» г. Южно-Сахалинск",
         link: "/mainCarousel/1.jpg"
@@ -46,105 +46,98 @@ export const mainCarouselContent=new Array(
 )
 //
 
-export const newsList=new Array(
+export const newsList = new Array(
+    {
+        name: "Международный форум «Электрические сети»",
+        imglink: "/mainCarousel/3.jpg",
+        text: "22-25 марта 2022 состоится международный форум «ЭЛЕКТРИЧЕСКИЕ СЕТИ». ВДНХ, 55, 57 павильон, ждем вас!",
+        data: "20.03.2022",
+        newsLink: "/news/8"
+    },
+    {
+        name: "Оборудование ПС 35/10 кВ «Совхоз Тепличный»",
+        imglink: "/mainCarousel/2.jpg",
+        text: "Выполненены проектные работы по объекту Строительство подстанции 35/10 кВ и распределительной сети 10/0, 4 кВ для энергоснабжения тепличного хозяйства АО Совхоз «Тепличный»",
+        data: "17.02.2022",
+        newsLink: "/news/7"
+    },
+    {
+        name: "Начата разработка нового сайта",
+        imglink: "/mainCarousel/2.jpg",
+        text: "Начата разработка нового сайта для нашей компании",
+        data: "15.02.2022",
+        newsLink: "/news/9"
+    },
+)
+
+
+export const projList = new Array(
     {
         name: "Оборудование ПС 35/10 кВ «Совхоз Тепличный»",
         imglink: "/mainCarousel/2.jpg",
         text: "Выполнение проектных работ по объекту Строительство подстанции 35/10 кВ и распределительной сети 10/0, 4 кВ для энергоснабжения тепличного хозяйства АО Совхоз «Тепличный»",
-        data: "15.02.2022", 
-        newsLink: "/news/7" 
+        data: "15.02.2022",
+        newsLink: "/news/7"
     },
     {
         name: "Оборудование ПС 35/6 кВ «Аралия» г. Южно-Сахалинск",
         imglink: "/mainCarousel/3.jpg",
         text: "Вот так вот, почти хакончили стоительство",
-        data: "16.02.2022", 
-        newsLink: "/news/8" 
+        data: "16.02.2022",
+        newsLink: "/news/8"
     },
     {
         name: "Начата разработка нового сайта",
         imglink: "/mainCarousel/2.jpg",
         text: "Вот так дела, сайт",
-        data: "17.02.2022", 
-        newsLink: "/news/9" 
+        data: "17.02.2022",
+        newsLink: "/news/9"
     },
     {
         name: "Тестовый заголовок",
         imglink: "/mainCarousel/4.jpg",
         text: "Все готово",
-        data: "18.02.2022", 
-        newsLink: "/news/10" 
+        data: "18.02.2022",
+        newsLink: "/news/10"
     }
 )
 
 
-export const projList=new Array(
-    {
-        name: "Оборудование ПС 35/10 кВ «Совхоз Тепличный»",
-        imglink: "/mainCarousel/2.jpg",
-        text: "Выполнение проектных работ по объекту Строительство подстанции 35/10 кВ и распределительной сети 10/0, 4 кВ для энергоснабжения тепличного хозяйства АО Совхоз «Тепличный»",
-        data: "15.02.2022", 
-        newsLink: "/news/7" 
-    },
-    {
-        name: "Оборудование ПС 35/6 кВ «Аралия» г. Южно-Сахалинск",
-        imglink: "/mainCarousel/3.jpg",
-        text: "Вот так вот, почти хакончили стоительство",
-        data: "16.02.2022", 
-        newsLink: "/news/8" 
-    },
-    {
-        name: "Начата разработка нового сайта",
-        imglink: "/mainCarousel/2.jpg",
-        text: "Вот так дела, сайт",
-        data: "17.02.2022", 
-        newsLink: "/news/9" 
-    },
-    {
-        name: "Тестовый заголовок",
-        imglink: "/mainCarousel/4.jpg",
-        text: "Все готово",
-        data: "18.02.2022", 
-        newsLink: "/news/10" 
-    }
-)
-
-
-export const solList=new Array(
+export const solList = new Array(
     {
         name: "ЗРУ6(10)кВ для ПС35 типовое решение",
         link: "/solutions/ЗРУ6(10)кВ для ПС35типовое решение.pdf",
         data: "ЗРУ6(10)кВ для ПС35 типовое решение"
-   
+
     },
     {
         name: "ОРУ35 -9 типовое решение",
         link: "/solutions/ОРУ35 -9 типовое решение.pdf",
         data: "ОРУ35 -9 типовое решение"
-   
+
     }
 )
 
 
-export const ordrsList=new Array(
+export const ordrsList = new Array(
     {
         name: "ЗРУ6(10)кВ для ПС35 типовое решение",
         link: "/solutions/ЗРУ6(10)кВ для ПС35типовое решение.pdf",
         data: "Сертификат о соответствии ЕАЭС зданий и помещений цельноперевозимых, модульного типа, сборно-разборных"
-   
+
     },
     {
         name: "ОРУ35 -9 типовое решение",
         link: "/solutions/ОРУ35 -9 типовое решение.pdf",
         data: "Сертификат соответствия подстанций комплектных трансформаторных, блочно- модульных серии КТПБ(м) по ТУ 3412-001-61085812-2017."
-   
+
     }
 )
 
 //руководство по эксплатации
 
 
-export const newsTags=new Array(
+export const newsTags = new Array(
     {
         tag: "Новости",
     },
@@ -157,7 +150,7 @@ export const newsTags=new Array(
 )
 
 
-export const contacts=new Array(
+export const contacts = new Array(
     {
         Title: "Центральный офис",
         Adress: "690091, Приморский край, г. Владивосток, ул. Фонтанная, д. 40, оф. 302",
@@ -215,7 +208,7 @@ export const contacts=new Array(
 )
 
 
-export const certificates=new Array(
+export const certificates = new Array(
     {
         name: "Сертификат соотвествия БМЗ",
         link: "/sertificates/ТДЭ_Сертификат_соответствия_БМЗ_сейсмика.pdf",
@@ -225,24 +218,24 @@ export const certificates=new Array(
         name: "Сертификат соответствия СМК",
         link: "/sertificates/ТДЭ Сертификат ИСО 9001 14001 45001.pdf",
         data: "Сертификат удостоверяющий соотвествие ГОСТ интегрированной системы менеджмента, применительно к производству и реализации электротехнического оборудования, распределительной и регулирующей аппаратуры."
-   
+
     },
     {
         name: "Декларация о соответствии ЕАЭС",
         link: "/sertificates/ТДЭ Декларация о соответствии ЕАЭС N RU Д-RU.РА02.В.4305122.pdf",
         data: "Сертификат о соответствии ЕАЭС зданий и помещений цельноперевозимых, модульного типа, сборно-разборных"
-   
+
     },
     {
         name: "Сертификат соответствия КТПБ",
         link: "/sertificates/ТДЭ КТПБ(м) Сертификат соответствия №04ПВК0.Н00584 от 10.02.2022.pdf",
         data: "Сертификат соответствия подстанций комплектных трансформаторных, блочно- модульных серии КТПБ(м) по ТУ 3412-001-61085812-2017."
-   
+
     }
 )
 
 
-export const protocols=new Array(
+export const protocols = new Array(
     {
         name: "Протокол испытаний № 13-22/02",
         link: "/sertificates/doc05300220220210082834.pdf",
@@ -255,7 +248,7 @@ export const protocols=new Array(
     }
 )
 
-export const rekviz=new Array(
+export const rekviz = new Array(
     {
         shortName: "ООО «ТДЭ»",
         longName: "Общество с ограниченной ответственностью «ТДЭ»",
@@ -273,6 +266,20 @@ export const rekviz=new Array(
         corespAddress: "301 018 106 000 000 006 08",
         bik: "040813608",
         dirrector: "Батурин Дмитрий Геннадьевич"
+    }
+)
+
+
+export const stor = new Array(
+    {
+        title: 'Ретом - ВЧ Магазин затуханий ВЧА-75',
+        img: new Array('/store/1.jpeg', '/store/2.jpeg'),
+        price:
+            '450 000 без ндс, в наличии 1 шт, БУ',
+        count:
+            '1',
+        content:
+            'Магазин затуханий ВЧА-75М повышает производительность труда при наладке и эксплуатации ВЧ устройств РЗ, ПА и ВЧ тракта. ВЧА-75М представляет собой набор делителей напряжения и образует аттенюатор с переключаемым коэффициентом ослабления. Характеристическое входное и выходное сопротивление магазина составляет 75 Ом. ВЧА-75М предназначен для проверки двух полукомплектов ВЧ аппаратуры в условиях лаборатории через искусственную линию, определения запаса по перекрываемому затуханию действующего канала, определения затухания симметричного четырехполюсника с характеристическим сопротивлением 75 Ом методом сравнения.',
     }
 )
 

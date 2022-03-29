@@ -29,10 +29,14 @@ class CustomHeader extends React.Component {
             return <Menu.Item key={key} onClick={() => store.dispatch({ type: сurPageIndexActT, value: key })} ><Link href={item.link}>{item.name}</Link></Menu.Item>;
           })}
         </Menu></Col>
-        <Col flex="150px" className={styles.phone} xs={30}><>
+        <Col flex="150px" className={styles.emphwrper} xs={30}>
+          <div className={styles.emph}>
+
           <PhoneFilled /> +7 (423) 240-21-87
           {/* <MailOutlined/>welcome@tde-tech.ru */}
-        </> </Col>
+
+          </div> 
+        </Col>
       </Row>
     </Layout.Header>
   }

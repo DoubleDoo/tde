@@ -42,7 +42,7 @@ const News: NextPage = () => {
           <Col span={22}>
             <Row className={styles.bigimg}>
               {newsTags.map((image, index) => (
-                <Col className={styles.tagBox} key={index}>
+                <Col className={styles.tagBox} key={index+"tag"}>
                   <Button className={styles.tag}>
                     {image.tag}
                   </Button>
@@ -146,8 +146,8 @@ const News: NextPage = () => {
 
 
               {newsList.map((image, index) => (
-                index == 0 && screens["sm"] ? <></> :
-                  <Col xs={{ span: 24, order: 0 }} sm={{ span: 12, order: 0 }} md={{ span: 8, order: 0 }} lg={{ span: 6, order: 0 }} key={index} className={styles.smallNewsCard}>
+                index == 0 && screens["sm"] ? <div key={index+"skl"}/> :
+                  <Col key={index+"nws"} xs={{ span: 24, order: 0 }} sm={{ span: 12, order: 0 }} md={{ span: 8, order: 0 }} lg={{ span: 6, order: 0 }} className={styles.smallNewsCard}>
                     <Row>
                       <Col span={24} className={styles.newsTextWrap}>
                         <Divider />
