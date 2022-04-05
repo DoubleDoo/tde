@@ -12,13 +12,6 @@ services:
       - .:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U tdeadmin -d tdebd"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 10s
-    restart: unless-stopped
   server:
     build: server/
     depends_on:
