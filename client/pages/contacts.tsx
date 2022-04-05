@@ -15,8 +15,8 @@ const Contacts: NextPage = () => {
     <Layout>
     <CustomHeader/>
     <Content className={styles.content}>
-      <RekvizBlock/>
       <ContactBlock/>
+      <RekvizBlock/>
     </Content>
     <CustomFooter/>
   </Layout>

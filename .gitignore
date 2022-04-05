@@ -38,3 +38,4 @@ yarn-error.log*
 .vscode
 server/node_modules
 server/dist
+data/bd
