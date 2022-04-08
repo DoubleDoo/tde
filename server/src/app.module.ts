@@ -4,6 +4,7 @@ import { AppService } from './services/app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 
+
 import { ProductModule } from './product.module';
 
 @Module({
