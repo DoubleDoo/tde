@@ -2,14 +2,14 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Product, CreateProductDto } from '../entity/product.entity';
+import { LinkedImages, CreateLinkedImagesDto } from '../entity/linkedImages.entity';
 
 @Injectable()
-export class ProductService {
-  @InjectRepository(Product)
-  private readonly repository: Repository<Product>;
+export class LinkedImagesService {
+  @InjectRepository(LinkedImages)
+  private readonly repository: Repository<LinkedImages>;
 
-  async find(id: string): Promise<Product> {
+  async find(id: string): Promise<LinkedImages> {
     const obj = await this.repository.findOne(id);
     if (obj) {
       return obj;
@@ -17,7 +17,7 @@ export class ProductService {
     throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
   }
 
-  public async get(): Promise<Product[]> {
+  public async get(): Promise<LinkedImages[]> {
     const obj = await this.repository.find();
     if (obj) {
       return obj;
@@ -26,27 +26,27 @@ export class ProductService {
   }
 
 
-  public async put(id: string, body: CreateProductDto): Promise<Product> {
+  public async put(id: string, body: CreateLinkedImagesDto): Promise<LinkedImages> {
     const obj = await this.repository.findOne(id);
-    obj.content = body.content;
-    obj.title = body.title;
+    obj.object = body.object;
+    obj.image = body.image;
     if (obj) {
       return this.repository.save(obj);
     }
     throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
   }
 
-  public async post(body: CreateProductDto): Promise<Product> {
-    const obj: Product = new Product();
-    obj.content = body.content;
-    obj.title = body.title;
+  public async post(body: CreateLinkedImagesDto): Promise<LinkedImages> {
+    const obj: LinkedImages = new LinkedImages();
+    obj.object = body.object;
+    obj.image = body.image;
     if (obj) {
       return this.repository.save(obj);
     }
     throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
   }
 
-  public async delete(id: string): Promise<Product> {
+  public async delete(id: string): Promise<LinkedImages> {
     const obj = await this.repository.delete(id)
     return
   }

@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Inject, Param, ParseIntPipe, ParseUUIDPipe, Post, Put,Delete, HttpCode, HttpException } from '@nestjs/common';
-import { Product,CreateProductDto } from '../entity/product.entity';
-import { ProductService } from '../services/product.service';
+import { Certificate,CreateCertificateDto } from '../entity/certificate.entity';
+import { CertificateService } from '../services/certificate.service';
 import {
   // ApiBearerAuth,
   ApiOperation,
@@ -8,18 +8,18 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 
-@ApiTags('product')
-@Controller('product')
-export class ProductController {
-  @Inject(ProductService)
-  private readonly service: ProductService;
+@ApiTags('certificate')
+@Controller('certificate')
+export class CertificateController {
+  @Inject(CertificateService)
+  private readonly service: CertificateService;
 
   @Get(':uuid')
   @ApiOperation({ summary: 'Get product by id' })
   @ApiResponse({ status: 403, description: 'Нет доступа' })
   @ApiResponse({ status: 400, description: 'Ошибка запроса' })
   @HttpCode(200)
-  public async find(@Param('uuid', new ParseUUIDPipe()) id: string): Promise<Product>{
+  public async find(@Param('uuid', new ParseUUIDPipe()) id: string): Promise<Certificate>{
     return await this.service.find(id);
   }
 
@@ -28,7 +28,7 @@ export class ProductController {
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
-  public async put(@Param('uuid', new ParseUUIDPipe()) id: string, @Body() body: CreateProductDto): Promise<Product>{
+  public async put(@Param('uuid', new ParseUUIDPipe()) id: string, @Body() body: CreateCertificateDto): Promise<Certificate>{
     return await this.service.put(id,body);
   }
 
@@ -37,7 +37,7 @@ export class ProductController {
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
-  public async get(): Promise<Product[]> {
+  public async get(): Promise<Certificate[]> {
     return await this.service.get();
   }
 
@@ -46,7 +46,7 @@ export class ProductController {
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(201)
-  public async post(@Body() body: CreateProductDto): Promise<Product> {
+  public async post(@Body() body: CreateCertificateDto): Promise<Certificate> {
     return await this.service.post(body);
   }
 

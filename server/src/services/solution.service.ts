@@ -2,14 +2,14 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Product, CreateProductDto } from '../entity/product.entity';
+import { Solution, CreateSolutionDto } from '../entity/solution.entity';
 
 @Injectable()
-export class ProductService {
-  @InjectRepository(Product)
-  private readonly repository: Repository<Product>;
+export class SolutionService {
+  @InjectRepository(Solution)
+  private readonly repository: Repository<Solution>;
 
-  async find(id: string): Promise<Product> {
+  async find(id: string): Promise<Solution> {
     const obj = await this.repository.findOne(id);
     if (obj) {
       return obj;
@@ -17,7 +17,7 @@ export class ProductService {
     throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
   }
 
-  public async get(): Promise<Product[]> {
+  public async get(): Promise<Solution[]> {
     const obj = await this.repository.find();
     if (obj) {
       return obj;
@@ -26,7 +26,7 @@ export class ProductService {
   }
 
 
-  public async put(id: string, body: CreateProductDto): Promise<Product> {
+  public async put(id: string, body: CreateSolutionDto): Promise<Solution> {
     const obj = await this.repository.findOne(id);
     obj.content = body.content;
     obj.title = body.title;
@@ -36,8 +36,8 @@ export class ProductService {
     throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
   }
 
-  public async post(body: CreateProductDto): Promise<Product> {
-    const obj: Product = new Product();
+  public async post(body: CreateSolutionDto): Promise<Solution> {
+    const obj: Solution = new Solution();
     obj.content = body.content;
     obj.title = body.title;
     if (obj) {
@@ -46,7 +46,7 @@ export class ProductService {
     throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
   }
 
-  public async delete(id: string): Promise<Product> {
+  public async delete(id: string): Promise<Solution> {
     const obj = await this.repository.delete(id)
     return
   }

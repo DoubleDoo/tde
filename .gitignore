@@ -39,3 +39,5 @@ yarn-error.log*
 server/node_modules
 server/dist
 data/bd
+data/files
+data/images
