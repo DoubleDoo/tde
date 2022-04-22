@@ -1,54 +1,15 @@
 import { PrimaryGeneratedColumn, Entity, Column, Generated } from 'typeorm';
 import { IsNotEmpty, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { Base,CreateBaseDto } from '../entity/base.entity';
 
 @Entity()
-export class Product {
-  @ApiProperty({
-    example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
-    description: 'UUID'
-  })
-  @PrimaryGeneratedColumn("uuid")
-  @Generated("uuid")
-  id: string;
+export class Product extends Base {
 
-  @ApiProperty({
-    example: "КТП",
-    description: 'Product name'
-  })
-  @Column({
-    type: "text",
-    nullable: false
-  })
-  title: string;
-
-  @ApiProperty({
-    example: 'Комплектная трансформаторная подстанция',
-    description: 'Product description'
-  })
-  @Column({
-    type: "text",
-    nullable: false
-  })
-  content: string;
 }
 
-export class CreateProductDto {
-  @ApiProperty({
-    example: "КТП",
-    description: 'Product name'
-  })
-  @IsString()
-  @IsNotEmpty()
-  public title: string;
+export class CreateProductDto extends CreateBaseDto{
 
-  @ApiProperty({
-    example: 'Комплектная трансформаторная подстанция',
-    description: 'Product description'
-  })
-  @IsString()
-  @IsNotEmpty()
-  public content: string;
 }
 
 

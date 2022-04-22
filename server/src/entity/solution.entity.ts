@@ -1,36 +1,10 @@
 import { PrimaryGeneratedColumn, Entity, Column, Generated } from 'typeorm';
 import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { Base,CreateBaseDto } from '../entity/base.entity';
 
 @Entity()
-export class Solution {
-  @ApiProperty({
-    example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
-    description: 'UUID'
-  })
-  @PrimaryGeneratedColumn("uuid")
-  @Generated("uuid")
-  id: string;
-
-  @ApiProperty({
-    example: "ЗРУ6(10)кВ для ПС35 типовое решение",
-    description: 'Solution name'
-  })
-  @Column({
-    type: "text",
-    nullable: false
-  })
-  title: string;
-
-  @ApiProperty({
-    example: 'ЗРУ6(10)кВ для ПС35 типовое решение',
-    description: 'Solution description'
-  })
-  @Column({
-    type: "text",
-    nullable: false
-  })
-  content: string;
+export class Solution extends Base{
 
   @ApiProperty({
     example: '3a4c019f-55ba-412e-a19f-d85f97d98fbf',
@@ -53,23 +27,7 @@ export class Solution {
   images: string;
 }
 
-export class CreateSolutionDto {
-  @ApiProperty({
-    example: "ЗРУ6(10)кВ для ПС35 типовое решение",
-    description: 'Solution name'
-  })
-  @IsString()
-  @IsNotEmpty()
-  public title: string;
-
-  @ApiProperty({
-    example: 'ЗРУ6(10)кВ для ПС35 типовое решение',
-    description: 'Solution description'
-  })
-  @IsString()
-  @IsNotEmpty()
-  public content: string;
-
+export class CreateSolutionDto extends CreateBaseDto{
   @ApiProperty({
     example: '3a4c019f-55ba-412e-a19f-d85f97d98fbf',
     description: 'Files UUID'

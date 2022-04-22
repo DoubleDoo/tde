@@ -10,7 +10,7 @@ export class Linked {
     example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
     description: 'UUID'
   })
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn("uuid",)
   @Generated("uuid")
   id: string;
   

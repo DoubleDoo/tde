@@ -6,6 +6,7 @@ import { Linked, CreateLinkedDto } from '../entity/linked.entity';
 import { File, CreateFileDto } from '../entity/file.entity';
 import { Image, CreateImageDto } from '../entity/image.entity';
 import { FileService } from '../services/file.service';
+import {unlinkSync} from 'fs';
 @Injectable()
 export class LinkedService {
   @InjectRepository(Linked)
@@ -38,7 +39,6 @@ export class LinkedService {
         fobj.id=element.filename.split('.')[0]
         Lin.file.push(fobj);
       });
-      let images=[]
       obj.images.forEach(element => {
         let iobj: Image = new Image();
         iobj.name = this.translit(element.originalname);
@@ -75,6 +75,24 @@ export class LinkedService {
   }
 
   public async delete(id: string): Promise<Linked> {
+    const Lin = await this.repository.findOne(id,{ relations: ["file","image"] });
+    if (Lin) {
+      console.log(Lin)
+      Lin.image.forEach(element => {
+        try {
+          unlinkSync("./../data/images/"+element.id+"."+element.name.split('.')[1])
+        } catch(err) {
+          console.error(err)
+        }
+      });
+      Lin.file.forEach(element => {
+        try {
+          unlinkSync("./../data/files/"+element.id+"."+element.name.split('.')[1])
+        } catch(err) {
+          console.error(err)
+        }
+      });
+    }
     const obj = await this.repository.delete(id)
     return
   }

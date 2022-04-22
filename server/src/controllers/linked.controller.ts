@@ -47,18 +47,7 @@ export class LinkedController {
   public async get(): Promise<Linked[]> {
     return await this.service.get();
   }
-
-
-  // @Put(':uuid')
-  // @ApiOperation({ summary: 'Change news by id' })
-  // @ApiResponse({ status: 403, description: 'Forbidden' })
-  // @ApiResponse({ status: 400, description: 'Bad Request' })
-  // @HttpCode(200)
-  // public async put(@Param('uuid', new ParseUUIDPipe()) id: string, @Body() body: CreateNewsDto): Promise<News>{
-  //   return await this.service.put(id,body);
-  // }
-
-  
+ 
   @Put(':uuid')
   @ApiConsumes('multipart/form-data')
   @ApiBody({

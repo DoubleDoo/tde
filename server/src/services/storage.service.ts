@@ -28,7 +28,7 @@ export class StorageService {
 
   public async put(id: string, body: CreateStorageDto): Promise<Storage> {
     const obj = await this.repository.findOne(id);
-    obj.description = body.description;
+    obj.content = body.content;
     obj.title = body.title;
     obj.price = body.price;
     obj.nds = body.nds;
@@ -41,7 +41,7 @@ export class StorageService {
 
   public async post(body: CreateStorageDto): Promise<Storage> {
     const obj: Storage = new Storage();
-    obj.description = body.description;
+    obj.content = body.content;
     obj.title = body.title;
     obj.price = body.price;
     obj.nds = body.nds;

@@ -46,13 +46,16 @@ export class ImageService {
     throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
   }
 
-  public async delete(id: string): Promise<File> {
-    try {
-       unlinkSync("./../data/images/"+id+'.jpg')
-     } catch(err) {
-       console.error(err)
-     }
-    const obj = await this.repository.delete(id)
+  public async delete(id: string): Promise<Image> {
+    const obj = await this.repository.findOne(id);
+    if (obj) {
+      try {
+        unlinkSync("./../data/images/"+id+"."+obj.name.split('.')[1])
+      } catch(err) {
+        console.error(err)
+      }
+     const del = await this.repository.delete(id)
+    }
     return 
   }
 
