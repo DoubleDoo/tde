@@ -1,36 +1,10 @@
 import { PrimaryGeneratedColumn, Entity, Column, Generated } from 'typeorm';
 import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { Base,CreateBaseDto } from '../entity/base.entity';
 
 @Entity()
-export class News {
-  @ApiProperty({
-    example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
-    description: 'UUID'
-  })
-  @PrimaryGeneratedColumn("uuid")
-  @Generated("uuid")
-  id: string;
-
-  @ApiProperty({
-    example: "Начата разработка нового сайта",
-    description: 'News title'
-  })
-  @Column({
-    type: "text",
-    nullable: false
-  })
-  title: string;
-
-  @ApiProperty({
-    example: 'Начата разработка нового сайта для нашей компании',
-    description: 'News description'
-  })
-  @Column({
-    type: "text",
-    nullable: false
-  })
-  content: string;
+export class News  extends Base{
 
   @ApiProperty({
     example: '11.04.2022',
@@ -63,23 +37,7 @@ export class News {
   images: string;
 }
 
-export class CreateNewsDto {
-  @ApiProperty({
-    example: "Начата разработка нового сайта",
-    description: 'News title'
-  })
-  @IsString()
-  @IsNotEmpty()
-  public title: string;
-
-  @ApiProperty({
-    example: 'Начата разработка нового сайта для нашей компании',
-    description: 'News description'
-  })
-  @IsString()
-  @IsNotEmpty()
-  public content: string;
-
+export class CreateNewsDto extends CreateBaseDto{
   @ApiProperty({
     example: '11.04.2022',
     description: 'Date of publication'

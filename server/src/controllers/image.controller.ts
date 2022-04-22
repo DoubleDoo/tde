@@ -55,28 +55,6 @@ export class ImageController {
   public async delete(@Param('uuid', new ParseUUIDPipe()) id: string) {
     return await this.service.delete(id);
   }
-
-  @Post()
-  @UseInterceptors(FileInterceptor('file', {
-    storage: diskStorage({
-      destination: './../data/images',
-      filename: function (req, file, cb) {
-        console.log(file.originalname.split('\.'))
-        cb(null, uuidv4() + "." + file.originalname.split('\.')[1])
-      }
-    }),
-    fileFilter: function (req, file, callback) {
-      var ext = file.originalname.split('\.')
-      if (ext[1] !== 'jpg') {
-        return callback(new Error('Only images (jpg) are allowed'), false)
-      }
-      callback(null, true)
-    },
-
-  }))
-  public async post(@Body() body: CreateFileDto, @UploadedFile() file: Express.Multer.File) {
-    return await this.service.post(body, file);
-  }
 }
 
 

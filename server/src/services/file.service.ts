@@ -46,19 +46,9 @@ export class FileService {
     throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
   }
 
-  public async post( body: CreateFileDto, file: Express.Multer.File) {
-    const obj: File = new File();
-    obj.name = this.translit(body.name);
-    obj.id=file.filename.split('.')[0]
-    if (obj) {
-       return this.repository.save(obj);
-    }
-    throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
-  }
-
   public async delete(id: string): Promise<File> {
     try {
-       unlinkSync("./../data/files/"+id+'.pdf')
+       unlinkSync("./../data/images/"+id+'.jpg')
      } catch(err) {
        console.error(err)
      }
@@ -66,35 +56,6 @@ export class FileService {
     return 
   }
 
-  private translit(word){
-    var answer = '';
-    var converter = {
-      'а': 'a',    'б': 'b',    'в': 'v',    'г': 'g',    'д': 'd',
-      'е': 'e',    'ё': 'e',    'ж': 'zh',   'з': 'z',    'и': 'i',
-      'й': 'y',    'к': 'k',    'л': 'l',    'м': 'm',    'н': 'n',
-      'о': 'o',    'п': 'p',    'р': 'r',    'с': 's',    'т': 't',
-      'у': 'u',    'ф': 'f',    'х': 'h',    'ц': 'c',    'ч': 'ch',
-      'ш': 'sh',   'щ': 'sch',  'ь': '',     'ы': 'y',    'ъ': '',
-      'э': 'e',    'ю': 'yu',   'я': 'ya',
-   
-      'А': 'A',    'Б': 'B',    'В': 'V',    'Г': 'G',    'Д': 'D',
-      'Е': 'E',    'Ё': 'E',    'Ж': 'Zh',   'З': 'Z',    'И': 'I',
-      'Й': 'Y',    'К': 'K',    'Л': 'L',    'М': 'M',    'Н': 'N',
-      'О': 'O',    'П': 'P',    'Р': 'R',    'С': 'S',    'Т': 'T',
-      'У': 'U',    'Ф': 'F',    'Х': 'H',    'Ц': 'C',    'Ч': 'Ch',
-      'Ш': 'Sh',   'Щ': 'Sch',  'Ь': '',     'Ы': 'Y',    'Ъ': '',
-      'Э': 'E',    'Ю': 'Yu',   'Я': 'Ya'
-    };
-   
-    for (var i = 0; i < word.length; ++i ) {
-      if (converter[word[i]] == undefined){
-        answer += word[i];
-      } else {
-        answer += converter[word[i]];
-      }
-    }
-   
-    return answer;
-  }
 }
 
+ 

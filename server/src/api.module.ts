@@ -17,14 +17,6 @@ import { ImageController } from './controllers/image.controller';
 import { ImageService } from './services/image.service';
 import { Image } from './entity/image.entity';
 
-import { LinkedFilesController } from './controllers/linkedFiles.controller';
-import { LinkedFilesService } from './services/linkedFiles.service';
-import { LinkedFiles } from './entity/linkedFiles.entity';
-
-import { LinkedImagesController } from './controllers/linkedImages.controller';
-import { LinkedImagesService } from './services/linkedImages.service';
-import { LinkedImages } from './entity/linkedImages.entity';
-
 import { NewsController } from './controllers/news.controller';
 import { NewsService } from './services/news.service';
 import { News } from './entity/news.entity';
@@ -49,20 +41,23 @@ import { ProductController } from './controllers/product.controller';
 import { ProductService } from './services/product.service';
 import { Product } from './entity/product.entity';
 
+import { LinkedController } from './controllers/linked.controller';
+import { LinkedService } from './services/linked.service';
+import { Linked } from './entity/linked.entity';
+
 @Module({
   imports: [
     TypeOrmModule.forFeature([Certificate]),
     TypeOrmModule.forFeature([Contact]),
-    TypeOrmModule.forFeature([File]),
-    TypeOrmModule.forFeature([Image]),
-    TypeOrmModule.forFeature([LinkedFiles]),
-    TypeOrmModule.forFeature([LinkedImages]),
     TypeOrmModule.forFeature([News]),
     TypeOrmModule.forFeature([Requisite]),
     TypeOrmModule.forFeature([Solution]),
     TypeOrmModule.forFeature([Storage]),
     TypeOrmModule.forFeature([TestProtocol]),
     TypeOrmModule.forFeature([Product]),
+    TypeOrmModule.forFeature([File]),
+    TypeOrmModule.forFeature([Image]),
+    TypeOrmModule.forFeature([Linked]),
 ],
   controllers: [
     ProductController,
@@ -70,13 +65,12 @@ import { Product } from './entity/product.entity';
     ContactController,
     FileController,
     ImageController,
-    LinkedFilesController,
-    LinkedImagesController,
     NewsController,
     RequisiteController,
     SolutionController,
     StorageController,
-    TestProtocolController
+    TestProtocolController,
+    LinkedController
   ],
   providers: [
     ProductService,
@@ -84,13 +78,12 @@ import { Product } from './entity/product.entity';
     ContactService,
     FileService,
     ImageService,
-    LinkedFilesService,
-    LinkedImagesService,
     NewsService,
     RequisiteService,
     SolutionService,
     StorageService,
-    TestProtocolService
+    TestProtocolService,
+    LinkedService
   ],
 })
 export class ProductModule {}

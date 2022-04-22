@@ -22,7 +22,7 @@ import {
 export class FileController {
   @Inject(FileService)
   private readonly service: FileService;
-
+ 
   @Get('/:uuid/:download')
   @ApiOperation({ summary: 'Get product by id' })
   @ApiResponse({ status: 403, description: 'Нет доступа' })
@@ -44,7 +44,6 @@ export class FileController {
     return await this.service.get();
   }
 
-
   @Delete(':uuid')
   @ApiOperation({ summary: 'Delete product' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
@@ -52,28 +51,6 @@ export class FileController {
   @HttpCode(204)
   public async delete(@Param('uuid', new ParseUUIDPipe()) id: string) {
     return await this.service.delete(id);
-  }
-
-  @Post()
-  @UseInterceptors(FileInterceptor('file', {
-    storage: diskStorage({
-      destination: './../data/files',
-      filename: function (req, file, cb) {
-        console.log(file.originalname.split('\.'))
-        cb(null, uuidv4() + "." + file.originalname.split('\.')[1])
-      }
-    }),
-    fileFilter: function (req, file, callback) {
-      var ext = file.originalname.split('\.')
-      if (ext[1] !== 'pdf') {
-        return callback(new Error('Only files (pdf) are allowed'), false)
-      }
-      callback(null, true)
-    },
-
-  }))
-  public async post(@Body() body: CreateFileDto, @UploadedFile() file: Express.Multer.File) {
-    return await this.service.post(body, file);
   }
 }
 

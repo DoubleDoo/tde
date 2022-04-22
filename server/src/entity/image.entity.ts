@@ -1,6 +1,7 @@
-import { PrimaryGeneratedColumn, Entity, Column, Generated } from 'typeorm';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { PrimaryGeneratedColumn, Entity, Column, Generated,PrimaryColumn,ManyToOne } from 'typeorm';
+import { IsNotEmpty, IsString,IsUUID } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { Linked,CreateLinkedDto} from '../entity/linked.entity';
 
 @Entity()
 export class Image {
@@ -9,26 +10,36 @@ export class Image {
     description: 'UUID'
   })
   @PrimaryGeneratedColumn("uuid")
-  @Generated("uuid")
   id: string;
 
   @ApiProperty({
-    example: "test.jpg",
-    description: 'Image name'
+    example: "test.pdf",
+    description: 'File name'
   })
   @Column({
     type: "text",
     nullable: false
   })
   name: string;
+
+  @ManyToOne( 
+    () => Linked, 
+    obj => obj.image,
+    {
+      onDelete:"CASCADE",
+      onUpdate:"CASCADE"
+    }
+    )
+  object: Linked;
 }
 
 export class CreateImageDto {
   @ApiProperty({
-    example: "test.jpg",
-    description: 'Image name'
+    example: "test.pdf",
+    description: 'File name'
   })
   @IsString()
   @IsNotEmpty()
   public name: string;
 }
+ 
