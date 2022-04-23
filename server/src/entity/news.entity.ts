@@ -22,9 +22,10 @@ export class News extends Base{
     description: 'File UUID'
   })
   @OneToOne( 
-    () => Linked,
+    () => Linked, obj => obj.id,
     {
       cascade: true,
+      eager: true
     }
   )
   @JoinColumn()

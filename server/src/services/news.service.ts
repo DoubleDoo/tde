@@ -25,6 +25,9 @@ export class NewsService {
   public async get(): Promise<News[]> {
     const obj = await this.repository.find({ relations: ["linked"] });//"file","image",
     console.log(obj)
+
+    // const obj2 = await Repository<Linked>.find({ relations: ["file","image"] });//"file","image",
+    // console.log(obj2)
     if (obj) {
       return obj;
     }
