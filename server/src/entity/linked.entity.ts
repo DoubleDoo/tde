@@ -16,7 +16,7 @@ export class Linked {
   
   @ApiProperty({
     example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
-    description: 'File UUID'
+    description: 'Images UUIDs'
   })
   @OneToMany( 
     () => Image, obj => obj.object,
@@ -29,7 +29,7 @@ export class Linked {
 
   @ApiProperty({
     example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
-    description: 'File UUID'
+    description: 'Files UUIDs'
   })
   @OneToMany( 
     () => File, obj => obj.object,
@@ -39,13 +39,13 @@ export class Linked {
   )
   @JoinColumn()
   file: File[];
-  
+ 
 }
  
 export class CreateLinkedDto {  
   @ApiProperty({
     example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
-    description: 'Image UUID'
+    description: 'Images UUIDs'
   })
   @IsUUID()
   @IsNotEmpty()
@@ -54,7 +54,7 @@ export class CreateLinkedDto {
 
   @ApiProperty({
     example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
-    description: 'File UUID'
+    description: 'Files UUIDs'
   })
   @IsUUID()
   @IsNotEmpty()

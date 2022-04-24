@@ -1,6 +1,16 @@
-import { PrimaryGeneratedColumn, Entity, Column, Generated} from 'typeorm';
-import { IsNotEmpty, IsString} from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+import { 
+  PrimaryGeneratedColumn, 
+  Entity, 
+  Column, 
+  Generated
+} from 'typeorm';
+import { 
+  IsNotEmpty, 
+  IsString
+} from 'class-validator';
+import { 
+  ApiProperty 
+} from '@nestjs/swagger';
 
 @Entity()
 export class Base {

@@ -1,13 +1,40 @@
-import { News, CreateNewsDto } from '../entity/news.entity';
-import { HttpException, HttpStatus } from '@nestjs/common';
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Linked, CreateLinkedDto } from '../entity/linked.entity';
-import { File, CreateFileDto } from '../entity/file.entity';
-import { Image, CreateImageDto } from '../entity/image.entity';
-import { FileService } from '../services/file.service';
-import {unlinkSync} from 'fs';
+import { 
+  News, 
+  CreateNewsDto 
+} from '../entity/news.entity';
+import { 
+  HttpException, 
+  HttpStatus 
+} from '@nestjs/common';
+import { 
+  Injectable 
+} from '@nestjs/common';
+import { 
+  InjectRepository 
+} from '@nestjs/typeorm';
+import { 
+  Repository 
+} from 'typeorm';
+import { 
+  Linked, 
+  CreateLinkedDto 
+} from '../entity/linked.entity';
+import { 
+  File, 
+  CreateFileDto 
+} from '../entity/file.entity';
+import { 
+  Image, 
+  CreateImageDto 
+} from '../entity/image.entity';
+import { 
+  FileService 
+} from '../services/file.service';
+import {
+  unlinkSync
+} from 'fs';
+
+
 @Injectable()
 export class NewsService {
   @InjectRepository(News)
@@ -23,11 +50,7 @@ export class NewsService {
   }
 
   public async get(): Promise<News[]> {
-    const obj = await this.repository.find({ relations: ["linked"] });//"file","image",
-    console.log(obj)
-
-    // const obj2 = await Repository<Linked>.find({ relations: ["file","image"] });//"file","image",
-    // console.log(obj2)
+    const obj = await this.repository.find({ relations: ["linked"] });
     if (obj) {
       return obj;
     }
@@ -35,24 +58,13 @@ export class NewsService {
   }
 
 
-  public async put( id: string, obj: {files? : Express.Multer.File[], images? : Express.Multer.File[]}): Promise<News> {
-    // const Lin = await this.repository.findOne(id,{ relations: ["file","image"] });
-    // if (Lin) {
-    //   console.log(Lin)
-    //   obj.files.forEach(element => {
-    //     let fobj: File = new File();
-    //     fobj.name = this.translit(element.originalname);
-    //     fobj.id=element.filename.split('.')[0]
-    //     Lin.file.push(fobj);
-    //   });
-    //   obj.images.forEach(element => {
-    //     let iobj: Image = new Image();
-    //     iobj.name = this.translit(element.originalname);
-    //     iobj.id=element.filename.split('.')[0]
-    //     Lin.image.push(iobj)  
-    //   });
-    //   return this.repository.save(Lin);
-    // }
+  public async put(id: string, body: CreateNewsDto): Promise<News> {
+    const obj = await this.repository.findOne(id);
+    obj.content = body.content;
+    obj.title = body.title;
+    if (obj) {
+      return this.repository.save(obj);
+    }
     throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
   }
 
@@ -79,7 +91,6 @@ export class NewsService {
     nobj.linked = lobj;
     nobj.title = body.title;
     nobj.content = body.content;
-    nobj.date = body.date;
     if (nobj) {
       return this.repository.save(nobj);
     }
@@ -87,24 +98,6 @@ export class NewsService {
   }
 
   public async delete(id: string): Promise<News> {
-    // const Lin = await this.repository.findOne(id,{ relations: ["file","image"] });
-    // if (Lin) {
-    //   console.log(Lin)
-    //   Lin.image.forEach(element => {
-    //     try {
-    //       unlinkSync("./../data/images/"+element.id+"."+element.name.split('.')[1])
-    //     } catch(err) {
-    //       console.error(err)
-    //     }
-    //   });
-    //   Lin.file.forEach(element => {
-    //     try {
-    //       unlinkSync("./../data/files/"+element.id+"."+element.name.split('.')[1])
-    //     } catch(err) {
-    //       console.error(err)
-    //     }
-    //   });
-    // }
     const obj = await this.repository.delete(id)
     return
   }

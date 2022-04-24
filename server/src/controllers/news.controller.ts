@@ -1,21 +1,33 @@
-import { News,CreateNewsDto } from '../entity/news.entity';
-import { NewsService } from '../services/news.service';
-import { Body, Controller, Get, Inject, Param, ParseIntPipe, ParseUUIDPipe, Post, Put,Delete, HttpCode, HttpException } from '@nestjs/common';
-import { Linked,CreateLinkedDto } from '../entity/linked.entity';
-import { LinkedService } from '../services/linked.service';
-import { ParseBoolPipe } from '@nestjs/common';
-import { File, CreateFileDto } from '../entity/file.entity';
-import { FileService } from '../services/file.service';
-import { diskStorage } from 'multer';
-import { v4 as uuidv4 } from 'uuid';
-
-import { Response } from '@nestjs/common';
-import {
-  UploadedFile,
+import { 
+  News,
+  CreateNewsDto 
+} from '../entity/news.entity';
+import { 
+  NewsService 
+} from '../services/news.service';
+import { 
+  Body, 
+  Controller, 
+  Get, 
+  Inject, 
+  Param, 
+  ParseUUIDPipe, 
+  Post, 
+  Put,
+  Delete, 
+  HttpCode,
   UploadedFiles,
-  UseInterceptors,
+  UseInterceptors, 
 } from '@nestjs/common';
-import { FileInterceptor,FileFieldsInterceptor } from '@nestjs/platform-express';
+import { 
+  diskStorage 
+} from 'multer';
+import { 
+  v4 as uuidv4 
+} from 'uuid';
+import { 
+  FileFieldsInterceptor 
+} from '@nestjs/platform-express';
 import {
   // ApiBearerAuth,
   ApiOperation,
@@ -32,9 +44,9 @@ export class NewsController {
   private readonly service: NewsService;
 
   @Get(':uuid')
-  @ApiOperation({ summary: 'Get news by id' })
-  @ApiResponse({ status: 403, description: 'Нет доступа' })
-  @ApiResponse({ status: 400, description: 'Ошибка запроса' })
+  @ApiOperation({ summary: 'Get news entity by id' })
+  @ApiResponse({ status: 403, description: 'Forbidden'  })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
   public async find(@Param('uuid', new ParseUUIDPipe()) id: string): Promise<News>{
     return await this.service.find(id);
@@ -42,7 +54,7 @@ export class NewsController {
 
 
   @Get()
-  @ApiOperation({ summary: 'Get list of all news' })
+  @ApiOperation({ summary: 'Get list of all news entities' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
@@ -51,75 +63,17 @@ export class NewsController {
   }
  
   @Put(':uuid')
-  @ApiConsumes('multipart/form-data')
-  @ApiBody({
-    schema: {
-      type: 'object',
-      properties: {
-        title: {
-          type: 'string',
-          format: 'json',
-        },
-        content: {
-          type: 'string',
-          format: 'json',
-        },
-        date: {
-          type: 'string',
-          format: 'json',
-        },
-        files: {
-          type: 'array',
-          items: {
-              type: 'string',
-              format: 'binary',
-          },
-        },
-        images: {
-          type: 'array',
-          items: {
-              type: 'string',
-              format: 'binary',
-          },
-        },
-      },
-    },
-  })
-  @UseInterceptors(FileFieldsInterceptor(
-    [
-      { name: 'files', maxCount: 2 },
-      { name: 'images', maxCount: 2 },
-    ], {
-    storage: diskStorage({
-      destination: function (req, obj, cb) {
-        console.log(obj.originalname.split('\.'))
-        if(obj.originalname.split('\.')[1]=="pdf"){
-          cb(null, './../data/files')
-        }
-        else{
-          cb(null, './../data/images')
-        }
-      },
-      filename: function (req, obj, cb) {
-        console.log(obj.originalname.split('\.'))
-        cb(null, uuidv4() + "." + obj.originalname.split('\.')[1])
-      }
-    }),
-    fileFilter: function (req, obj, callback) {
-      var ext = obj.originalname.split('\.')
-      // if (ext[1] !== 'pdf') {
-      //   return callback(new Error('Only files (pdf) are allowed'), false)
-      // }
-      callback(null, true)
-    },
-
-  }))
-  public async put(@Param('uuid', new ParseUUIDPipe())  id: string, @UploadedFiles() obj: {files? : Express.Multer.File[], images? : Express.Multer.File[]}): Promise<News> {
-    return await this.service.put(id, obj);
+  @ApiOperation({ summary: 'Change news entity by id' })
+  @ApiResponse({ status: 403, description: 'Forbidden' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @HttpCode(200)
+  public async put(@Param('uuid', new ParseUUIDPipe()) id: string, @Body() body: CreateNewsDto): Promise<News>{
+    return await this.service.put(id,body);
   }
 
 
   @Post()
+  @ApiOperation({ summary: 'Create news entity' })
   @ApiConsumes('multipart/form-data')
   @ApiBody({
     schema: {
@@ -130,10 +84,6 @@ export class NewsController {
           format: 'json',
         },
         content: {
-          type: 'string',
-          format: 'json',
-        },
-        date: {
           type: 'string',
           format: 'json',
         },
@@ -162,10 +112,17 @@ export class NewsController {
     storage: diskStorage({
       destination: function (req, obj, cb) {
         console.log(obj.originalname.split('\.'))
-        if(obj.originalname.split('\.')[1]=="pdf"){
+        let ext = obj.originalname.split('\.')
+        if (ext[1] === "pdf" ||
+          ext[1] === "xls" ||
+          ext[1] === "xlsx" ||
+          ext[1] === "doc" ||
+          ext[1] === "docx") {
           cb(null, './../data/files')
         }
-        else{
+        else if (ext[1] === "jpg" ||
+          ext[1] === "png" ||
+          ext[1] === "jpeg") {
           cb(null, './../data/images')
         }
       },
@@ -176,10 +133,17 @@ export class NewsController {
     }),
     fileFilter: function (req, obj, callback) {
       var ext = obj.originalname.split('\.')
-      // if (ext[1] !== 'pdf') {
-      //   return callback(new Error('Only files (pdf) are allowed'), false)
-      // }
-      callback(null, true)
+      if (ext[1] === "pdf" ||
+        ext[1] === "xls" ||
+        ext[1] === "xlsx" ||
+        ext[1] === "doc" ||
+        ext[1] === "docx" ||
+        ext[1] === "jpg" ||
+        ext[1] === "png" ||
+        ext[1] === "jpeg") {
+        return callback(null, true)
+      }
+      return callback(new Error('Only files with extension pdf,xls,xlsx,doc,docx are allowed and images with extension jpg,png,jpeg'), false)
     },
 
   }))

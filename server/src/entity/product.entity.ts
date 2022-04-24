@@ -1,22 +1,51 @@
-import { PrimaryGeneratedColumn, Entity, Column, Generated } from 'typeorm';
-import { IsNotEmpty, IsString } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
-import { Base,CreateBaseDto } from '../entity/base.entity';
-
-@Entity()
-export class Product extends Base {
-
-}
-
-export class CreateProductDto extends CreateBaseDto{
-
-}
-
-
-// int, int2, int4, int8, smallint, integer, bigint, decimal, numeric, real, float, float4,
-// float8, double precision, money, character varying, varchar, character, char, text, citext,
-// hstore, bytea, bit, varbit, bit varying, timetz, timestamptz, timestamp, timestamp without time zone,
-// timestamp with time zone, date, time, time without time zone, time with time zone, interval, bool,
-// boolean, enum, point, line, lseg, box, path, polygon, circle, cidr, inet, macaddr, tsvector, tsquery,
-// uuid, xml, json, jsonb, int4range, int8range, numrange, tsrange, tstzrange, daterange, geometry, geography,
-// cube, ltree
+import { 
+    Entity, 
+    OneToOne, 
+    JoinColumn,
+  } from 'typeorm';
+  import { 
+    IsNotEmpty,
+    IsUUID 
+  } from 'class-validator';
+  import { 
+    ApiProperty 
+  } from '@nestjs/swagger';
+  import { 
+    Base,
+    CreateBaseDto 
+  } from '../entity/base.entity';
+  import { 
+    Linked,
+    CreateLinkedDto
+  } from './linked.entity';
+  
+  @Entity()
+  export class Product extends Base{
+  
+    @ApiProperty({
+      example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
+      description: 'File UUID'
+    })
+    @OneToOne( 
+      () => Linked,
+      {
+        cascade: true,
+        eager: true
+      }
+    )
+    @JoinColumn()
+    linked: Linked;
+  
+  }
+  
+  export class CreateProductDto extends CreateBaseDto{
+    @ApiProperty({
+      example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
+      description: 'Image UUID'
+    })
+    @IsUUID()
+    @IsNotEmpty()
+    public linked: CreateLinkedDto;
+  
+  }
+  

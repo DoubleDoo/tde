@@ -1,7 +1,18 @@
-import { PrimaryGeneratedColumn, Entity, Column, Generated} from 'typeorm';
-import { IsNotEmpty, IsString} from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
-import { Linked,CreateLinkedDto} from './linked.entity';
+import { 
+  Entity, 
+  Column
+} from 'typeorm';
+import { 
+  IsNotEmpty, 
+  IsString
+} from 'class-validator';
+import { 
+  ApiProperty 
+} from '@nestjs/swagger';
+import { 
+  Linked,
+  CreateLinkedDto
+} from './linked.entity';
 
 @Entity()
 export class BaseLinked extends Linked {

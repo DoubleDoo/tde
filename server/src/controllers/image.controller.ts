@@ -1,17 +1,20 @@
-import { Body, Controller, Get, Inject, Param, ParseIntPipe,ParseBoolPipe, ParseUUIDPipe, Post, Put,Delete, HttpCode, HttpException } from '@nestjs/common';
-import { Image,CreateImageDto } from '../entity/image.entity';
-import { ImageService } from '../services/image.service';
-
-import { File, CreateFileDto } from '../entity/file.entity';
-import { FileService } from '../services/file.service';
-import { diskStorage } from 'multer';
-import { v4 as uuidv4 } from 'uuid';
-import { FileInterceptor } from '@nestjs/platform-express';
-import { Response } from '@nestjs/common';
-import {
-  UploadedFile,
-  UseInterceptors,
+import { 
+  Controller, 
+  Get, 
+  Inject, 
+  Param, 
+  ParseUUIDPipe, 
+  Delete, 
+  HttpCode, 
+  ParseBoolPipe,
+  Response 
 } from '@nestjs/common';
+import { 
+  Image 
+} from '../entity/image.entity';
+import { 
+  ImageService 
+} from '../services/image.service';
 import {
   // ApiBearerAuth,
   ApiOperation,
@@ -27,9 +30,9 @@ export class ImageController {
 
   
   @Get('/:uuid/:download')
-  @ApiOperation({ summary: 'Get product by id' })
-  @ApiResponse({ status: 403, description: 'Нет доступа' })
-  @ApiResponse({ status: 400, description: 'Ошибка запроса' })
+  @ApiOperation({ summary: 'Get image by id, if "download" value set true, return download link, else return info about entity from db' })
+  @ApiResponse({ status: 403, description: 'Forbidden' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
   public async find(@Param('uuid', new ParseUUIDPipe()) id: string, @Param('download', new ParseBoolPipe()) download: boolean,   @Response({ passthrough: true }) res) {
     if (download){
@@ -39,7 +42,7 @@ export class ImageController {
   }
 
   @Get()
-  @ApiOperation({ summary: 'Get list of all products' })
+  @ApiOperation({ summary: 'Get list of all image entities from db' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
@@ -48,7 +51,7 @@ export class ImageController {
   }
 
   @Delete(':uuid')
-  @ApiOperation({ summary: 'Delete product' })
+  @ApiOperation({ summary: 'Delete image by id' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(204)

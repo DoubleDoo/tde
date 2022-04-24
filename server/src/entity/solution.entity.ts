@@ -1,44 +1,50 @@
-import { PrimaryGeneratedColumn, Entity, Column, Generated } from 'typeorm';
-import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
-import { Base,CreateBaseDto } from '../entity/base.entity';
+import { 
+  Entity, 
+  OneToOne, 
+  JoinColumn,
+} from 'typeorm';
+import { 
+  IsNotEmpty,
+  IsUUID 
+} from 'class-validator';
+import { 
+  ApiProperty 
+} from '@nestjs/swagger';
+import { 
+  Base,
+  CreateBaseDto 
+} from '../entity/base.entity';
+import { 
+  Linked,
+  CreateLinkedDto
+} from './linked.entity';
 
 @Entity()
 export class Solution extends Base{
 
   @ApiProperty({
-    example: '3a4c019f-55ba-412e-a19f-d85f97d98fbf',
-    description: 'Files UUID'
+    example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
+    description: 'File UUID'
   })
-  @Column({
-    type: "uuid",
-    nullable: true
-  })
-  files: string;
+  @OneToOne( 
+    () => Linked,
+    {
+      cascade: true,
+      eager: true
+    }
+  )
+  @JoinColumn()
+  linked: Linked;
 
-  @ApiProperty({
-    example: '3a4c019f-55ba-412e-a19f-d85f97d98fbf',
-    description: 'Images UUID'
-  })
-  @Column({
-    type: "uuid",
-    nullable: true
-  })
-  images: string;
 }
 
 export class CreateSolutionDto extends CreateBaseDto{
   @ApiProperty({
-    example: '3a4c019f-55ba-412e-a19f-d85f97d98fbf',
-    description: 'Files UUID'
+    example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
+    description: 'Image UUID'
   })
   @IsUUID()
-  public files: string;
+  @IsNotEmpty()
+  public linked: CreateLinkedDto;
 
-  @ApiProperty({
-    example: '3a4c019f-55ba-412e-a19f-d85f97d98fbf',
-    description: 'Images UUID'
-  })
-  @IsUUID()
-  public images: string;
 }

@@ -1,8 +1,18 @@
-import { HttpException, HttpStatus } from '@nestjs/common';
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Contact, CreateContactDto } from '../entity/contact.entity';
+import { 
+  HttpException, 
+  HttpStatus,
+  Injectable
+} from '@nestjs/common';
+import { 
+  InjectRepository 
+} from '@nestjs/typeorm';
+import { 
+  Repository 
+} from 'typeorm';
+import { 
+  Contact, 
+  CreateContactDto 
+} from '../entity/contact.entity';
 
 @Injectable()
 export class ContactService {

@@ -1,6 +1,22 @@
-import { Body, Controller, Get, Inject, Param, ParseIntPipe, ParseUUIDPipe, Post, Put,Delete, HttpCode, HttpException } from '@nestjs/common';
-import { Contact,CreateContactDto } from '../entity/contact.entity';
-import { ContactService } from '../services/contact.service';
+import { 
+  Body, 
+  Controller, 
+  Get, 
+  Inject, 
+  Param,  
+  ParseUUIDPipe, 
+  Post, 
+  Put,
+  Delete, 
+  HttpCode 
+} from '@nestjs/common';
+import { 
+  Contact,
+  CreateContactDto 
+} from '../entity/contact.entity';
+import { 
+  ContactService 
+} from '../services/contact.service';
 import {
   // ApiBearerAuth,
   ApiOperation,
@@ -15,16 +31,16 @@ export class ContactController {
   private readonly service: ContactService;
 
   @Get(':uuid')
-  @ApiOperation({ summary: 'Get product by id' })
-  @ApiResponse({ status: 403, description: 'Нет доступа' })
-  @ApiResponse({ status: 400, description: 'Ошибка запроса' })
+  @ApiOperation({ summary: 'Get contact entity by id' })
+  @ApiResponse({ status: 403, description: 'Forbidden' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
   public async find(@Param('uuid', new ParseUUIDPipe()) id: string): Promise<Contact>{
     return await this.service.find(id);
   }
 
   @Put(':uuid')
-  @ApiOperation({ summary: 'Change product by id' })
+  @ApiOperation({ summary: 'Change contact entity by id' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
@@ -33,7 +49,7 @@ export class ContactController {
   }
 
   @Get()
-  @ApiOperation({ summary: 'Get list of all products' })
+  @ApiOperation({ summary: 'Get list of all contact entities' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
@@ -42,7 +58,7 @@ export class ContactController {
   }
 
   @Post()
-  @ApiOperation({ summary: 'Create product' })
+  @ApiOperation({ summary: 'Create contact entity' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(201)
@@ -51,7 +67,7 @@ export class ContactController {
   }
 
   @Delete(':uuid')
-  @ApiOperation({ summary: 'Delete product' })
+  @ApiOperation({ summary: 'Delete contact entity' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(204)

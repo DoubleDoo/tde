@@ -1,8 +1,18 @@
-import { HttpException, HttpStatus } from '@nestjs/common';
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Requisite, CreateRequisiteDto } from '../entity/requisite.entity';
+import { 
+  HttpException, 
+  HttpStatus,
+  Injectable 
+} from '@nestjs/common';
+import { 
+  InjectRepository 
+} from '@nestjs/typeorm';
+import { 
+  Repository 
+} from 'typeorm';
+import { 
+  Requisite, 
+  CreateRequisiteDto 
+} from '../entity/requisite.entity';
 
 @Injectable()
 export class RequisiteService {
@@ -24,8 +34,7 @@ export class RequisiteService {
     }
     throw new HttpException('Exception', HttpStatus.BAD_REQUEST);
   }
-
-
+  
   public async put(id: string, body: CreateRequisiteDto): Promise<Requisite> {
     const obj = await this.repository.findOne(id);
     obj.short_name = body.short_name;

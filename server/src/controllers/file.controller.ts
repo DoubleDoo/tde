@@ -1,15 +1,20 @@
-import { Body, Controller, Get, Inject, Param, ParseIntPipe, ParseUUIDPipe, Post, Put, Delete, HttpCode, HttpException, ParseBoolPipe } from '@nestjs/common';
-import { File, CreateFileDto } from '../entity/file.entity';
-import { FileService } from '../services/file.service';
-import { diskStorage } from 'multer';
-import { v4 as uuidv4 } from 'uuid';
-
-import { Response } from '@nestjs/common';
-import {
-  UploadedFile,
-  UseInterceptors,
+import { 
+  Controller, 
+  Get, 
+  Inject, 
+  Param, 
+  ParseUUIDPipe, 
+  Delete, 
+  HttpCode, 
+  ParseBoolPipe,
+  Response 
 } from '@nestjs/common';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { 
+  File 
+} from '../entity/file.entity';
+import { 
+  FileService 
+} from '../services/file.service';
 import {
   // ApiBearerAuth,
   ApiOperation,
@@ -24,9 +29,9 @@ export class FileController {
   private readonly service: FileService;
  
   @Get('/:uuid/:download')
-  @ApiOperation({ summary: 'Get product by id' })
-  @ApiResponse({ status: 403, description: 'Нет доступа' })
-  @ApiResponse({ status: 400, description: 'Ошибка запроса' })
+  @ApiOperation({ summary: 'Get file by id, if "download" value set true, return download link, else return info about entity from db' })
+  @ApiResponse({ status: 403, description: 'Forbidden' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
   public async find(@Param('uuid', new ParseUUIDPipe()) id: string, @Param('download', new ParseBoolPipe()) download: boolean,   @Response({ passthrough: true }) res) {
     if (download){
@@ -36,7 +41,7 @@ export class FileController {
   }
 
   @Get()
-  @ApiOperation({ summary: 'Get list of all products' })
+  @ApiOperation({ summary: 'Get list of all file entitys from db' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
@@ -45,7 +50,7 @@ export class FileController {
   }
 
   @Delete(':uuid')
-  @ApiOperation({ summary: 'Delete product' })
+  @ApiOperation({ summary: 'Delete file by id' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(204)

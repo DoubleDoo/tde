@@ -1,8 +1,24 @@
-import { PrimaryGeneratedColumn, Entity, Column, Generated, OneToOne, JoinColumn } from 'typeorm';
-import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
-import { Base,CreateBaseDto } from '../entity/base.entity';
-import { Linked,CreateLinkedDto} from './linked.entity';
+import { 
+  Entity, 
+  OneToOne, 
+  JoinColumn,
+  CreateDateColumn
+} from 'typeorm';
+import { 
+  IsNotEmpty,
+  IsUUID 
+} from 'class-validator';
+import { 
+  ApiProperty 
+} from '@nestjs/swagger';
+import { 
+  Base,
+  CreateBaseDto 
+} from '../entity/base.entity';
+import { 
+  Linked,
+  CreateLinkedDto
+} from './linked.entity';
 
 @Entity()
 export class News extends Base{
@@ -11,7 +27,7 @@ export class News extends Base{
     example: '2021-04-14',
     description: 'Date of publication'
   })
-  @Column({
+  @CreateDateColumn({
     type: "date",
     nullable: false
   })
@@ -22,7 +38,7 @@ export class News extends Base{
     description: 'File UUID'
   })
   @OneToOne( 
-    () => Linked, obj => obj.id,
+    () => Linked,
     {
       cascade: true,
       eager: true
@@ -34,14 +50,6 @@ export class News extends Base{
 }
 
 export class CreateNewsDto extends CreateBaseDto{
-  @ApiProperty({
-    example: '11.04.2022',
-    description: 'Date of publication'
-  })
-  @IsString()
-  @IsNotEmpty()
-  public date: string;
-
   @ApiProperty({
     example: "3a4c019f-55ba-412e-a19f-d85f97d98fbf",
     description: 'Image UUID'

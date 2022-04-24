@@ -13,8 +13,8 @@ export class Image {
   id: string;
 
   @ApiProperty({
-    example: "test.pdf",
-    description: 'File name'
+    example: "image.png",
+    description: 'Image name with extension (jpg,png,jpeg)'
   })
   @Column({
     type: "text",
@@ -35,8 +35,8 @@ export class Image {
 
 export class CreateImageDto {
   @ApiProperty({
-    example: "test.pdf",
-    description: 'File name'
+    example: "image.png",
+    description: 'Image name with extension (jpg,png,jpeg)'
   })
   @IsString()
   @IsNotEmpty()

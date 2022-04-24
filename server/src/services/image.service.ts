@@ -1,12 +1,28 @@
-import { HttpException, HttpStatus } from '@nestjs/common';
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Image, CreateImageDto } from '../entity/image.entity';
-import {unlinkSync} from 'fs';
-import { StreamableFile, Response } from '@nestjs/common';
-import { createReadStream } from 'fs';
-import { join } from 'path';
+import { 
+  HttpException, 
+  HttpStatus,
+  Injectable 
+} from '@nestjs/common';
+import { 
+  InjectRepository 
+} from '@nestjs/typeorm';
+import { 
+  Repository 
+} from 'typeorm';
+import { 
+  Image 
+} from '../entity/image.entity';
+import {
+  unlinkSync,
+  createReadStream
+} from 'fs';
+import { 
+  StreamableFile, 
+  Response 
+} from '@nestjs/common';
+import { 
+  join 
+} from 'path';
 
 
 @Injectable()
@@ -16,7 +32,7 @@ export class ImageService {
 
   async findimage(id: string,@Response({ passthrough: true }) res) {
     const obj = await this.repository.findOne(id);
-    const file = createReadStream(join(process.cwd(), "./../data/images/"+id+'.jpg'));
+    const file = createReadStream(join(process.cwd(), "./../data/images/"+id+'.'+obj.name.split('.')[1]));
     if (obj) {
       const str='attachment; filename='+obj.name
       console.log(obj.name)

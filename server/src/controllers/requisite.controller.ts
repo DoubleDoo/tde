@@ -1,6 +1,21 @@
-import { Body, Controller, Get, Inject, Param, ParseIntPipe, ParseUUIDPipe, Post, Put,Delete, HttpCode, HttpException } from '@nestjs/common';
-import { Requisite,CreateRequisiteDto } from '../entity/requisite.entity';
-import { RequisiteService } from '../services/requisite.service';
+import { 
+  Body, 
+  Controller, 
+  Get, 
+  Inject, 
+  Param, 
+  ParseUUIDPipe, 
+  Post, 
+  Put,
+  Delete, 
+  HttpCode } from '@nestjs/common';
+import { 
+  Requisite,
+  CreateRequisiteDto 
+} from '../entity/requisite.entity';
+import { 
+  RequisiteService 
+} from '../services/requisite.service';
 import {
   // ApiBearerAuth,
   ApiOperation,
@@ -15,16 +30,16 @@ export class RequisiteController {
   private readonly service: RequisiteService;
 
   @Get(':uuid')
-  @ApiOperation({ summary: 'Get product by id' })
-  @ApiResponse({ status: 403, description: 'Нет доступа' })
-  @ApiResponse({ status: 400, description: 'Ошибка запроса' })
+  @ApiOperation({ summary: 'Get requisite entity by id' })
+  @ApiResponse({ status: 403, description: 'Forbidden' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
   public async find(@Param('uuid', new ParseUUIDPipe()) id: string): Promise<Requisite>{
     return await this.service.find(id);
   }
 
   @Put(':uuid')
-  @ApiOperation({ summary: 'Change product by id' })
+  @ApiOperation({ summary: 'Change requisite by id' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
@@ -33,7 +48,7 @@ export class RequisiteController {
   }
 
   @Get()
-  @ApiOperation({ summary: 'Get list of all products' })
+  @ApiOperation({ summary: 'Get list of all requisite entities' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(200)
@@ -42,7 +57,7 @@ export class RequisiteController {
   }
 
   @Post()
-  @ApiOperation({ summary: 'Create product' })
+  @ApiOperation({ summary: 'Create requisite entity' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(201)
@@ -51,7 +66,7 @@ export class RequisiteController {
   }
 
   @Delete(':uuid')
-  @ApiOperation({ summary: 'Delete product' })
+  @ApiOperation({ summary: 'Delete requisite entity' })
   @ApiResponse({ status: 403, description: 'Forbidden' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @HttpCode(204)

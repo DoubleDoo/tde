@@ -1,12 +1,28 @@
-import { HttpException, HttpStatus } from '@nestjs/common';
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { File, CreateFileDto } from '../entity/file.entity';
-import {unlinkSync} from 'fs';
-import { StreamableFile, Response } from '@nestjs/common';
-import { createReadStream } from 'fs';
-import { join } from 'path';
+import { 
+  HttpException, 
+  HttpStatus,
+  Injectable 
+} from '@nestjs/common';
+import { 
+  InjectRepository 
+} from '@nestjs/typeorm';
+import { 
+  Repository 
+} from 'typeorm';
+import { 
+  File 
+} from '../entity/file.entity';
+import {
+  unlinkSync,
+  createReadStream
+} from 'fs';
+import { 
+  StreamableFile, 
+  Response 
+} from '@nestjs/common';
+import { 
+  join 
+} from 'path';
 
 
 @Injectable()
@@ -16,7 +32,7 @@ export class FileService {
 
   async findfile(id: string,@Response({ passthrough: true }) res) {
     const obj = await this.repository.findOne(id);
-    const file = createReadStream(join(process.cwd(), "./../data/files/"+id+'.pdf'));
+    const file = createReadStream(join(process.cwd(), "./../data/files/"+id+'.'+obj.name.split('.')[1]));
     if (obj) {
       const str='attachment; filename='+obj.name
       console.log(obj.name)

@@ -13,8 +13,8 @@ export class File {
   id: string;
 
   @ApiProperty({
-    example: "test.pdf",
-    description: 'File name'
+    example: "file.pdf",
+    description: 'File name with extension (pdf,xls,xlsx,doc,docx)'
   })
   @Column({
     type: "text",
@@ -35,8 +35,8 @@ export class File {
 
 export class CreateFileDto {
   @ApiProperty({
-    example: "test.pdf",
-    description: 'File name'
+    example: "file.pdf",
+    description: 'File name with extension (pdf,xls,xlsx,doc,docx)'
   })
   @IsString()
   @IsNotEmpty()
