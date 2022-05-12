@@ -83,7 +83,7 @@ import { Linked } from './entity/linked.entity';
     SolutionService,
     StorageService,
     TestProtocolService,
-    LinkedService
-  ],
+    LinkedService,
+  ]
 })
-export class ProductModule {}
+export class ApiModule {}
