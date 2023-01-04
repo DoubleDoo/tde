@@ -12,5 +12,5 @@
 }
 
 .img{
-  
+  object-fit:contain;
 }

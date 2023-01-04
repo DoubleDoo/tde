@@ -1,0 +1,21 @@
+.block{
+  min-height: 500px;
+  height: 100vh;
+  position:relative
+}
+
+.lblock{
+  position:absolute;
+  width: 500px;
+  height: 400px;
+  top:50%;
+  left:50%;
+  margin-left:-250px;
+  margin-top:-200px;
+}
+
+.but{
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+}

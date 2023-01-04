@@ -22,11 +22,12 @@ class MainCarouselBlock extends React.Component<Props, State> {
     return <Carousel autoplay>
       {mainCarouselContent.map((image, index) => (
         <div key={index} className={styles.imgbox}>
-          <Image src={image.link} className={styles.img}
-            layout="responsive"
-            width={500}
-            height={200}
-          />
+          <Image className={styles.img}
+            src={image.link}
+            alt="Picture of the author"
+            width={1600}
+            height={750}
+          /> 
         </div>
       ))}
 

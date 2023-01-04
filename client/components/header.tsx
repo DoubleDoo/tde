@@ -17,9 +17,7 @@ class CustomHeader extends React.Component {
         <Col flex="100px">
           <div className={styles.imgbox}>
             <Link href={"/"}>
-              <a>
                 <Image src="/whitelogo.png" className={styles.img} alt="Logo" layout='fill' onClick={() => store.dispatch({ type: сurPageIndexActT, value: 0 })}></Image>
-              </a>
             </Link>
           </div>
         </Col>

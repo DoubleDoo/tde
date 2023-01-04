@@ -33,18 +33,28 @@ class SolutionsBlock extends React.Component<Props, State> {
       </Row >
       <Row>
         <Col span={1} order={1} />
-        <Col xs={{ span: 22, order: 2 }} sm={{ span: 10, order: 2 }} lg={{ span: 10, order: 2 }} className={styles.img}>
-          <Image src={"/r1.png"} layout="responsive" width={500} height={300} />
+        <Col xs={{ span: 22, order: 2 }} sm={{ span: 22, order: 2 }} lg={{ span: 10, order: 2 }} className={styles.img}>
+          <Image className={styles.img}
+            src={"/r1.png"}
+            alt="Picture of the author"
+            width={500}
+            height={400}
+          /> 
         </Col>
         <Col span={1} order={3} />
         <Col span={1} order={4} />
-        <Col xs={{ span: 22, order: 8 }} sm={{ span: 10, order: 5 }} lg={{ span: 10, order: 5 }} className={styles.img}>
-          <Image src={"/r2.png"} layout="responsive" width={500} height={300} />
+        <Col xs={{ span: 22, order: 8 }} sm={{ span: 22, order: 8 }} lg={{ span: 10, order: 5 }} className={styles.img}>
+          <Image className={styles.img}
+            src={"/r2.png"}
+            alt="Picture of the author"
+            width={500}
+            height={400}
+          /> 
         </Col>
         <Col span={1} order={6} />
 
         <Col span={1} order={7} />
-        <Col xs={{ span: 22, order: 5 }} sm={{ span: 10, order: 8 }} lg={{ span: 10, order: 8 }}>
+        <Col xs={{ span: 22, order: 5 }} sm={{ span: 22, order: 5 }} lg={{ span: 10, order: 8 }}>
           <Typography>
             <Paragraph>
               <ol>
@@ -60,7 +70,7 @@ class SolutionsBlock extends React.Component<Props, State> {
         </Col>
         <Col span={1} order={9} />
         <Col span={1} order={10} />
-        <Col xs={{ span: 22, order: 11 }} sm={{ span: 10, order: 11 }} lg={{ span: 10, order: 11 }}>
+        <Col xs={{ span: 22, order: 11 }} sm={{ span: 22, order: 11 }} lg={{ span: 10, order: 11 }}>
           <Typography>
             <Paragraph>
               <ol start={3}>
