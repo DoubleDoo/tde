@@ -9,6 +9,10 @@ import { CertificatesBlock } from "../components/certificatesBlock"
 import { Typography } from 'antd';
 import{solList} from "../components/bd"
 import { Cap } from "../components/cap"
+import { Carousel } from 'antd';
+import { oCarouselContent } from "../components/bd"
+import Image from 'next/image'
+
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -23,7 +27,43 @@ const Production: NextPage = () => {
           <Col span={1}/>
           <Col span={22}>
             <Typography>
-              <Title level={2}>Наша продукция</Title>
+              <Title level={1}>Наша продукция</Title>
+            </Typography>
+          </Col>
+          <Col span={1}/>
+        </Row>
+        <Row className={styles.block}>
+          <Col span={1}/>
+          <Col span={22}>
+            <Typography>
+              <Title level={2}>ЯКНО 6(10)кВ.</Title>
+            </Typography>
+          </Col>
+          <Col span={1}/>
+        </Row>
+        <Row className={styles.block}>
+          <Col span={1}/>
+          <Col span={22}>
+          <Carousel autoplay>
+            {oCarouselContent.map((image, index) => (
+              <div key={index} className={styles.imgbox}>
+                <Image className={styles.img}
+                  src={image.link}
+                  alt="Picture of the author"
+                  width={500}
+                  height={500}
+                /> 
+              </div>
+            ))}
+          </Carousel>
+          </Col>
+          <Col span={1}/>
+        </Row>
+        <Row className={styles.block}>
+          <Col span={1}/>
+          <Col span={22}>
+            <Typography>
+              <Title level={1}>Прочая продукция</Title>
             </Typography>
           </Col>
           <Col span={1}/>

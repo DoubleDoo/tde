@@ -44,6 +44,25 @@ export const mainCarouselContent = new Array(
         link: "/mainCarousel/5.jpg"
     },
 )
+
+export const oCarouselContent = new Array(
+    {
+        name: "ЯКНО 6(10)кВ",
+        link: "/yacno/1.jpg"
+    },
+    {
+        name: "ЯКНО 6(10)кВ",
+        link: "/yacno/2.jpg"
+    },
+    {
+        name: "ЯКНО 6(10)кВ",
+        link: "/yacno/3.jpg"
+    },
+    {
+        name: "ЯКНО 6(10)кВ",
+        link: "/yacno/4.jpg"
+    },
+)
 //
 
 export const newsList = new Array(
