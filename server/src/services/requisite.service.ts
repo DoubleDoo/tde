@@ -20,7 +20,7 @@ export class RequisiteService {
   private readonly repository: Repository<Requisite>;
 
   async find(id: string): Promise<Requisite> {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     if (obj) {
       return obj;
     }
@@ -36,7 +36,7 @@ export class RequisiteService {
   }
   
   public async put(id: string, body: CreateRequisiteDto): Promise<Requisite> {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     obj.short_name = body.short_name;
     obj.long_name = body.long_name;
     obj.legal_address = body.legal_address;

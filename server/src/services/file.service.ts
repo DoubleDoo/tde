@@ -31,7 +31,7 @@ export class FileService {
   private readonly repository: Repository<File>;
 
   async findfile(id: string,@Response({ passthrough: true }) res) {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     const file = createReadStream(join(process.cwd(), "./../data/files/"+id+'.'+obj.name.split('.')[1]));
     if (obj) {
       const str='attachment; filename='+obj.name
@@ -47,7 +47,7 @@ export class FileService {
   }
 
   async find(id: string): Promise<File> {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     if (obj) {
       return obj;
     }
@@ -63,7 +63,7 @@ export class FileService {
   }
 
   public async delete(id: string): Promise<File> {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     if (obj) {
       try {
         unlinkSync("./../data/files/"+id+"."+obj.name.split('.')[1])

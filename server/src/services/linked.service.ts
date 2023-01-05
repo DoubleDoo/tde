@@ -29,7 +29,7 @@ export class LinkedService {
   private readonly repository: Repository<Linked>;
 
   async find(id: string): Promise<Linked> {
-    const obj = await this.repository.findOne(id,{ relations: ["file","image"] });
+    const obj = await this.repository.findOne({relations: {file:true,image:true} });
     if (obj) {
       return obj;
     }
@@ -46,7 +46,7 @@ export class LinkedService {
 
 
   public async put( id: string, obj: {files? : Express.Multer.File[], images? : Express.Multer.File[]}): Promise<Linked> {
-    const Lin = await this.repository.findOne(id,{ relations: ["file","image"] });
+    const Lin = await this.repository.findOne({relations: {file:true,image:true} });
     if (Lin) {
       console.log(Lin)
       obj.files.forEach(element => {
@@ -91,7 +91,7 @@ export class LinkedService {
   }
 
   public async delete(id: string): Promise<Linked> {
-    const Lin = await this.repository.findOne(id,{ relations: ["file","image"] });
+    const Lin = await this.repository.findOne({relations: {file:true,image:true} });
     if (Lin) {
       console.log(Lin)
       Lin.image.forEach(element => {

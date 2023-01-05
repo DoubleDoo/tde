@@ -20,7 +20,7 @@ export class ContactService {
   private readonly repository: Repository<Contact>;
 
   async find(id: string): Promise<Contact> {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     if (obj) {
       return obj;
     }
@@ -37,7 +37,7 @@ export class ContactService {
 
 
   public async put(id: string, body: CreateContactDto): Promise<Contact> {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     obj.title = body.title;
     obj.address = body.address;
     obj.email = body.email;

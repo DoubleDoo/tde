@@ -41,7 +41,7 @@ export class StorageService {
  private readonly repository: Repository<Storage>;
 
  async find(id: string): Promise<Storage> {
-   const obj = await this.repository.findOne(id,{ relations: ["linked"] });
+   const obj = await this.repository.findOne({relations: {linked:true} });
    console.log(obj)
    if (obj) {
      return obj;
@@ -59,7 +59,7 @@ export class StorageService {
 
 
  public async put(id: string, body: CreateStorageDto): Promise<Storage> {
-   const obj = await this.repository.findOne(id);
+   const obj = await this.repository.findOneBy({id:id});
    obj.content = body.content;
    obj.title = body.title;
    if (obj) {

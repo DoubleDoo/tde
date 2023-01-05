@@ -31,7 +31,7 @@ export class ImageService {
   private readonly repository: Repository<Image>;
 
   async findimage(id: string,@Response({ passthrough: true }) res) {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     const file = createReadStream(join(process.cwd(), "./../data/images/"+id+'.'+obj.name.split('.')[1]));
     if (obj) {
       const str='attachment; filename='+obj.name
@@ -47,7 +47,7 @@ export class ImageService {
   }
 
   async find(id: string): Promise<Image> {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     if (obj) {
       return obj;
     }
@@ -63,7 +63,7 @@ export class ImageService {
   }
 
   public async delete(id: string): Promise<Image> {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     if (obj) {
       try {
         unlinkSync("./../data/images/"+id+"."+obj.name.split('.')[1])

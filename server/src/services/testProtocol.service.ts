@@ -41,7 +41,7 @@ export class TestProtocolService {
  private readonly repository: Repository<TestProtocol>;
 
  async find(id: string): Promise<TestProtocol> {
-   const obj = await this.repository.findOne(id,{ relations: ["linked"] });
+   const obj = await this.repository.findOne({relations: {linked:true} });
    console.log(obj)
    if (obj) {
      return obj;
@@ -59,7 +59,7 @@ export class TestProtocolService {
 
 
  public async put(id: string, body: CreateTestProtocolDto): Promise<TestProtocol> {
-   const obj = await this.repository.findOne(id);
+   const obj = await this.repository.findOneBy({id:id});
    obj.content = body.content;
    obj.title = body.title;
    if (obj) {

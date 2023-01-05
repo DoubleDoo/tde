@@ -41,7 +41,7 @@ export class NewsService {
   private readonly repository: Repository<News>;
 
   async find(id: string): Promise<News> {
-    const obj = await this.repository.findOne(id,{ relations: ["linked"] });
+    const obj = await this.repository.findOne({relations: {linked:true} });
     console.log(obj)
     if (obj) {
       return obj;
@@ -59,7 +59,7 @@ export class NewsService {
 
 
   public async put(id: string, body: CreateNewsDto): Promise<News> {
-    const obj = await this.repository.findOne(id);
+    const obj = await this.repository.findOneBy({id:id});
     obj.content = body.content;
     obj.title = body.title;
     if (obj) {
