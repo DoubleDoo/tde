@@ -12,7 +12,7 @@ import { Cap } from "../components/cap"
 import { Carousel } from 'antd';
 import { oCarouselContent } from "../components/bd"
 import Image from 'next/image'
-
+import Link from 'next/link'
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -44,18 +44,21 @@ const Production: NextPage = () => {
         <Row className={styles.block}>
           <Col span={1}/>
           <Col span={22}>
-          <Carousel autoplay>
-            {oCarouselContent.map((image, index) => (
-              <div key={index} className={styles.imgbox}>
-                <Image className={styles.img}
-                  src={image.link}
-                  alt="Picture of the author"
-                  width={500}
-                  height={500}
-                /> 
-              </div>
-            ))}
-          </Carousel>
+            <Image className={styles.img}
+            src={oCarouselContent[0].link}
+            alt="Picture of the author"
+            width={500}
+            height={500}
+          /> 
+          </Col>
+          <Col span={1}/>
+          </Row>
+          <Row className={styles.block}>
+          <Col span={1}/>
+          <Col span={22}>
+          <Typography>
+            Наш партнер производственная площадка г.Красноярск компания <Link href={"https://abaz24.ru/servis"}>{"АБАЗ-24"}</Link>
+          </Typography>
           </Col>
           <Col span={1}/>
         </Row>
